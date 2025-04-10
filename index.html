@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Store Management System</title>
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #34495e;
+        }
+
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #eee;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .tab.active {
+            background-color: #3498db;
+            color: white;
+        }
+
+        /* Main Content Styles */
+        .tab-content {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* POS Styles */
+        .pos-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .product-search {
+            margin-bottom: 20px;
+        }
+
+        .product-search input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .shopping-cart {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-actions {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Inventory Styles */
+        .inventory-actions {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Invoice Styles */
+        .invoice {
+            background-color: white;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .invoice-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .invoice-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .invoice-items {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .invoice-items th {
+            background-color: #f8f9fa;
+        }
+
+        .total-row {
+            font-weight: bold;
+        }
+
+        .invoice-footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .pos-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">HardwarePro Manager</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link" data-tab="pos">POS</a></li>
+                    <li><a href="#" class="nav-link" data-tab="inventory">Inventory</a></li>
+                    <li><a href="#" class="nav-link" data-tab="reports">Reports</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" data-tab="pos">Point of Sale</div>
+            <div class="tab" data-tab="inventory">Inventory Management</div>
+            <div class="tab" data-tab="reports">Reports</div>
+        </div>
+
+        <!-- POS Tab Content -->
+        <div id="pos" class="tab-content active">
+            <div class="pos-container">
+                <div class="product-section">
+                    <div class="product-search">
+                        <input type="text" id="product-search" placeholder="Search products...">
+                    </div>
+                    <div class="product-list" id="product-list">
+                        <!-- Product cards will be inserted here by JavaScript -->
+                    </div>
+                </div>
+                <div class="shopping-cart">
+                    <h3>Current Sale</h3>
+                    <div id="cart-items">
+                        <!-- Cart items will be inserted here by JavaScript -->
+                    </div>
+                    <div class="cart-total">
+                        <p>Total: $<span id="cart-total">0.00</span></p>
+                    </div>
+                    <div class="cart-actions">
+                        <button id="process-payment">Process Payment</button>
+                        <button id="clear-cart">Clear Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inventory Tab Content -->
+        <div id="inventory" class="tab-content">
+            <div class="inventory-actions">
+                <button id="add-product">Add New Product</button>
+            </div>
+            <table id="inventory-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Inventory items will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Reports Tab Content -->
+        <div id="reports" class="tab-content">
+            <h2>Sales Reports</h2>
+            <div class="report-filters">
+                <select id="report-type">
+                    <option value="daily">Daily Sales</option>
+                    <option value="weekly">Weekly Sales</option>
+                    <option value="monthly">Monthly Sales</option>
+                </select>
+                <input type="date" id="report-date">
+                <button id="generate-report">Generate Report</button>
+            </div>
+            <div id="report-results">
+                <!-- Report results will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Invoice Modal (hidden by default) -->
+    <div id="invoice-modal" style="display: none;">
+        <div class="invoice">
+            <div class="invoice-header">
+                <h1>HardwarePro Store</h1>
+                <p>123 Main Street, City</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            
+            <div class="invoice-details">
+                <div>
+                    <h2>INVOICE</h2>
+                    <p>No: <span id="invoice-number">0001</span></p>
+                    <p>Date: <span id="invoice-date"></span></p>
+                </div>
+                <div class="customer-info">
+                    <h3>Customer</h3>
+                    <p>Walk-in Customer</p>
+                </div>
+            </div>
+            
+            <table class="invoice-items">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody id="invoice-items">
+                    <!-- Invoice items will be inserted here by JavaScript -->
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td colspan="3">TOTAL</td>
+                        <td>$<span id="invoice-total">0.00</span></td>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            <div class="invoice-footer">
+                <p>Thank you for your business!</p>
+                <p>Terms: Payment due upon receipt</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button id="print-invoice">Print Invoice</button>
+            <button id="close-invoice">Close</button>
+        </div>
+    </div>
+
+    <!-- Add Product Modal (hidden by default) -->
+    <div id="add-product-modal" style="display: none;">
+        <div style="background: white; padding: 30px; border-radius: 5px; max-width: 500px; margin: 0 auto;">
+            <h2>Add New Product</h2>
+            <form id="product-form">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Product Name</label>
+                    <input type="text" id="product-name" style="width: 100%; padding: 8px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Category</label>
+                    <select id="product-category" style="width: 100%; padding: 8px;">
+                        <option value="tools">Tools</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="paint">Paint</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Price ($)</label>
+                    <input type="number" step="0.01" id="product-price" style="width: 100%; padding: 8px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Quantity in Stock</label>
+                    <input type="number" id="product-quantity" style="width: 100%; padding: 8px;">
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="button" id="cancel-add-product">Cancel</button>
+                    <button type="submit">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Sample data - in a real app, this would come from a backend API
+        let products = [
+            { id: 1, name: "Hammer", category: "tools", price: 12.99, quantity: 25 },
+            { id: 2, name: "Screwdriver Set", category: "tools", price: 19.99, quantity: 15 },
+            { id: 3, name: "Pipe Wrench", category: "plumbing", price: 24.99, quantity: 10 },
+            { id: 4, name: "Electrical Tape", category: "electrical", price: 5.99, quantity: 50 },
+            { id: 5, name: "Paint Brush Set", category: "paint", price: 14.99, quantity: 20 }
+        ];
+
+        let cart = [];
+        let currentTab = 'pos';
+
+        // DOM Elements
+        const tabContents = document.querySelectorAll('.tab-content');
+        const tabs = document.querySelectorAll('.tab');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const productList = document.getElementById('product-list');
+        const cartItems = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        const processPaymentBtn = document.getElementById('process-payment');
+        const clearCartBtn = document.getElementById('clear-cart');
+        const productSearch = document.getElementById('product-search');
+        const inventoryTable = document.getElementById('inventory-table').querySelector('tbody');
+        const addProductBtn = document.getElementById('add-product');
+        const invoiceModal = document.getElementById('invoice-modal');
+        const invoiceItems = document.getElementById('invoice-items');
+        const invoiceTotal = document.getElementById('invoice-total');
+        const invoiceDate = document.getElementById('invoice-date');
+        const printInvoiceBtn = document.getElementById('print-invoice');
+        const closeInvoiceBtn = document.getElementById('close-invoice');
+        const addProductModal = document.getElementById('add-product-modal');
+        const productForm = document.getElementById('product-form');
+        const cancelAddProductBtn = document.getElementById('cancel-add-product');
+
+        // Initialize the application
+        function init() {
+            renderProducts();
+            renderInventory();
+            setupEventListeners();
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Tab navigation
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    switchTab(link.dataset.tab);
+                });
+            });
+
+            // POS functionality
+            processPaymentBtn.addEventListener('click', processPayment);
+            clearCartBtn.addEventListener('click', clearCart);
+            productSearch.addEventListener('input', filterProducts);
+
+            // Inventory functionality
+            addProductBtn.addEventListener('click', showAddProductModal);
+            productForm.addEventListener('submit', saveProduct);
+            cancelAddProductBtn.addEventListener('click', hideAddProductModal);
+
+            // Invoice functionality
+            printInvoiceBtn.addEventListener('click', printInvoice);
+            closeInvoiceBtn.addEventListener('click', closeInvoice);
+        }
+
+        // Switch between tabs
+        function switchTab(tabId) {
+            // Update active tab
+            tabs.forEach(tab => {
+                if (tab.dataset.tab === tabId) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+
+            // Update active content
+            tabContents.forEach(content => {
+                if (content.id === tabId) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+
+            // Update nav links
+            navLinks.forEach(link => {
+                if (link.dataset.tab === tabId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            currentTab = tabId;
+        }
+
+        // Render products in POS
+        function renderProducts(filter = '') {
+            productList.innerHTML = '';
+            
+            const filteredProducts = products.filter(product => 
+                product.name.toLowerCase().includes(filter.toLowerCase())
+            );
+
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <h4>${product.name}</h4>
+                    <p>$${product.price.toFixed(2)}</p>
+                    <p>Stock: ${product.quantity}</p>
+                `;
+                productCard.addEventListener('click', () => addToCart(product));
+                productList.appendChild(productCard);
+            });
+        }
+
+        // Filter products based on search input
+        function filterProducts() {
+            renderProducts(productSearch.value);
+        }
+
+        // Add product to cart
+        function addToCart(product) {
+            const existingItem = cart.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+            
+            renderCart();
+        }
+
+        // Render shopping cart
+        function renderCart() {
+            cartItems.innerHTML = '';
+            
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <span>${item.name} x${item.quantity}</span>
+                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                `;
+                cartItems.appendChild(cartItem);
+            });
+            
+            // Update total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        // Clear cart
+        function clearCart() {
+            cart = [];
+            renderCart();
+        }
+
+        // Process payment
+        function processPayment() {
+            if (cart.length === 0) {
+                alert('Cart is empty!');
+                return;
+            }
+            
+            // Generate invoice
+            const now = new Date();
+            invoiceDate.textContent = now.toLocaleDateString();
+            
+            invoiceItems.innerHTML = '';
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            cart.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                `;
+                invoiceItems.appendChild(row);
+            });
+            
+            invoiceTotal.textContent = total.toFixed(2);
+            
+            // Show invoice modal
+            invoiceModal.style.display = 'block';
+        }
+
+        // Print invoice
+        function printInvoice() {
+            window.print();
+        }
+
+        // Close invoice
+        function closeInvoice() {
+            invoiceModal.style.display = 'none';
+            clearCart();
+        }
+
+        // Render inventory table
+        function renderInventory() {
+            inventoryTable.innerHTML = '';
+            
+            products.forEach(product => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.id}</td>
+                    <td>${product.name}</td>
+                    <td>${product.category}</td>
+                    <td>$${product.price.toFixed(2)}</td>
+                    <td>${product.quantity}</td>
+                    <td>
+                        <button class="edit-product" data-id="${product.id}">Edit</button>
+                        <button class="delete-product" data-id="${product.id}">Delete</button>
+                    </td>
+                `;
+                inventoryTable.appendChild(row);
+            });
+            
+            // Add event listeners to edit/delete buttons
+            document.querySelectorAll('.edit-product').forEach(btn => {
+                btn.addEventListener('click', () => editProduct(parseInt(btn.dataset.id)));
+            });
+            
+            document.querySelectorAll('.delete-product').forEach(btn => {
+                btn.addEventListener('click', () => deleteProduct(parseInt(btn.dataset.id)));
+            });
+        }
+
+        // Show add product modal
+        function showAddProductModal() {
+            addProductModal.style.display = 'block';
+        }
+
+        // Hide add product modal
+        function hideAddProductModal() {
+            addProductModal.style.display = 'none';
+            productForm.reset();
+        }
+
+        // Save product (add or edit)
+        function saveProduct(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('product-name').value;
+            const category = document.getElementById('product-category').value;
+            const price = parseFloat(document.getElementById('product-price').value);
+            const quantity = parseInt(document.getElementById('product-quantity').value);
+            
+            // In a real app, you would validate the inputs here
+            
+            // Generate new ID (in a real app, this would come from the backend)
+            const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+            
+            const newProduct = {
+                id: newId,
+                name,
+                category,
+                price,
+                quantity
+            };
+            
+            products.push(newProduct);
+            renderInventory();
+            renderProducts();
+            hideAddProductModal();
+        }
+
+        // Edit product
+        function editProduct(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+            
+            document.getElementById('product-name').value = product.name;
+            document.getElementById('product-category').value = product.category;
+            document.getElementById('product-price').value = product.price;
+            document.getElementById('product-quantity').value = product.quantity;
+            
+            showAddProductModal();
+        }
+
+        // Delete product
+        function deleteProduct(id) {
+            if (confirm('Are you sure you want to delete this product?')) {
+                products = products.filter(p => p.id !== id);
+                renderInventory();
+                renderProducts();
+            }
+        }
+
+        // Initialize the app
+        init();
+    </script>
+</body>
+</html>
