@@ -580,7 +580,7 @@
                 productCard.innerHTML = `
                     <h4>${product.name}</h4>
                     <p>KES ${product.price.toFixed(2)}</p>
-                    <p>Stock: ${product.quantity}</p>
+                    <p>Stock: KES {product.quantity}</p>
                 `;
                 productCard.addEventListener('click', () => addToCart(product));
                 productList.appendChild(productCard);
