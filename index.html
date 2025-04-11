@@ -579,7 +579,7 @@
                 productCard.className = 'product-card';
                 productCard.innerHTML = `
                     <h4>${product.name}</h4>
-                    <p>$${product.price.toFixed(2)}</p>
+                    <p>KES ${product.price.toFixed(2)}</p>
                     <p>Stock: ${product.quantity}</p>
                 `;
                 productCard.addEventListener('click', () => addToCart(product));
@@ -617,7 +617,7 @@
                 cartItem.className = 'cart-item';
                 cartItem.innerHTML = `
                     <span>${item.name} x${item.quantity}</span>
-                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                    <span>KES ${(item.price * item.quantity).toFixed(2)}</span>
                 `;
                 cartItems.appendChild(cartItem);
             });
@@ -652,8 +652,8 @@
                 row.innerHTML = `
                     <td>${item.name}</td>
                     <td>${item.quantity}</td>
-                    <td>$${item.price.toFixed(2)}</td>
-                    <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                    <td>KES ${item.price.toFixed(2)}</td>
+                    <td>KES ${(item.price * item.quantity).toFixed(2)}</td>
                 `;
                 invoiceItems.appendChild(row);
             });
@@ -685,7 +685,7 @@
                     <td>${product.id}</td>
                     <td>${product.name}</td>
                     <td>${product.category}</td>
-                    <td>$${product.price.toFixed(2)}</td>
+                    <td>KES ${product.price.toFixed(2)}</td>
                     <td>${product.quantity}</td>
                     <td>
                         <button class="edit-product" data-id="${product.id}">Edit</button>
