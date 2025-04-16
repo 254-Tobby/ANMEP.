@@ -334,7 +334,7 @@
 
     <!-- Invoice Modal (hidden by default) -->
     <div id="invoice-modal" style="display: none;">
-        <div class="invoice">
+        <div class="invoice">''
             <div class="invoice-header">
                 <h1>Hardware Store</h1>
                 <p>Korrompoi market,Along Namanga road,opp national oil Nasinya resort</p>
@@ -368,7 +368,7 @@
                 <tfoot>
                     <tr class="total-row">
                         <td colspan="3">TOTAL</td>
-                        <td>$<span id="invoice-total">0.00</span></td>
+                        <td>KES<span id="invoice-total">0.00</span></td>
                     </tr>
                 </tfoot>
             </table>
@@ -404,7 +404,7 @@
                     </select>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <label style="display: block; margin-bottom: 5px;">Price ($)</label>
+                    <label style="display: block; margin-bottom: 5px;">Price (KES)</label>
                     <input type="number" step="0.01" id="product-price" style="width: 100%; padding: 8px;">
                 </div>
                 <div style="margin-bottom: 15px;">
@@ -422,7 +422,7 @@
     <script>
         // Sample data - in a real app, this would come from a backend API
         let products = [
-            { id: 1, name: "Hammer", category: "tools", price: 1685.45, quantity: 25 },
+            { id: 1, name: "Hammer", category: "tools", price: 1685.45, image: "Download Hammer PNG Image for Free.jpeg", quantity: 25 },
             { id: 2, name: "Screwdriver Set", category: "tools", price: 2593.70, quantity: 15 },
             { id: 3, name: "Pipe Wrench", category: "plumbing", price: 3245.20, quantity: 10 },
             { id: 4, name: "Electrical Tape", category: "electrical", price: 777.20, quantity: 50 },
