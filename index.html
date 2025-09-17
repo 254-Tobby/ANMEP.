@@ -84,6 +84,136 @@
             transform: translateY(-2px);
         }
 
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+        }
+
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Login Form Styles */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .login-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-success {
+            background-color: #27ae60;
+        }
+
+        .btn-success:hover {
+            background-color: #219653;
+        }
+
+        .btn-danger {
+            background-color: #e74c3c;
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+        }
+
+        .demo-accounts {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .demo-accounts h4 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .demo-accounts ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .demo-accounts li {
+            margin-bottom: 5px;
+        }
+
         /* Tab Navigation */
         .tabs {
             display: flex;
@@ -304,6 +434,8 @@
 
         .cart-item-info {
             flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .cart-item-name {
@@ -369,58 +501,6 @@
             gap: 15px;
         }
 
-        button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 12px 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        button i {
-            margin-right: 8px;
-        }
-
-        button:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        button:active {
-            transform: translateY(0);
-        }
-
-        button.secondary {
-            background-color: #6c757d;
-        }
-
-        button.secondary:hover {
-            background-color: #5a6268;
-        }
-
-        button.success {
-            background-color: #27ae60;
-        }
-
-        button.success:hover {
-            background-color: #219653;
-        }
-
-        button.danger {
-            background-color: #e74c3c;
-        }
-
-        button.danger:hover {
-            background-color: #c0392b;
-        }
-
         /* Inventory Styles */
         .inventory-header {
             display: flex;
@@ -483,11 +563,6 @@
         .action-buttons {
             display: flex;
             gap: 10px;
-        }
-
-        .action-buttons button {
-            padding: 8px 12px;
-            font-size: 14px;
         }
 
         /* Reports Styles */
@@ -636,10 +711,10 @@
             margin-bottom: 30px;
             padding-bottom: 20px;
             border-bottom: 2px solid #3498db;
+            color: #2c3e50;
         }
 
         .invoice-header h1 {
-            color: #2c3e50;
             margin-bottom: 10px;
         }
 
@@ -680,6 +755,47 @@
             color: #6c757d;
         }
 
+        /* User Management Styles */
+        .user-management {
+            margin-top: 20px;
+        }
+
+        .user-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .user-details {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-role {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .role-admin {
+            background: #ffeaa7;
+            color: #d35400;
+        }
+
+        .role-manager {
+            background: #d6eaf8;
+            color: #2980b9;
+        }
+
+        .role-cashier {
+            background: #d5f5e3;
+            color: #27ae60;
+        }
+
         /* Responsive Styles */
         @media (max-width: 992px) {
             .pos-container {
@@ -695,6 +811,7 @@
             .header-content {
                 flex-direction: column;
                 text-align: center;
+                gap: 15px;
             }
             
             nav ul {
@@ -733,6 +850,12 @@
             
             .inventory-actions {
                 justify-content: center;
+            }
+            
+            .user-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
             }
         }
 
@@ -806,177 +929,267 @@
                 <i class="fas fa-hard-hat"></i>
                 <span>Hardware Manager</span>
             </div>
-            <nav>
+            <nav id="main-nav" class="hidden">
                 <ul>
                     <li><a href="#" class="nav-link active" data-tab="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                     <li><a href="#" class="nav-link" data-tab="pos"><i class="fas fa-cash-register"></i> POS</a></li>
                     <li><a href="#" class="nav-link" data-tab="inventory"><i class="fas fa-boxes"></i> Inventory</a></li>
                     <li><a href="#" class="nav-link" data-tab="reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                    <li><a href="#" class="nav-link" data-tab="users"><i class="fas fa-users"></i> Users</a></li>
                 </ul>
             </nav>
+            <div id="user-info" class="user-info hidden">
+                <div class="user-avatar" id="user-avatar">U</div>
+                <div>
+                    <div id="user-name">User Name</div>
+                    <div id="user-role" class="user-role role-cashier">Role</div>
+                </div>
+                <button id="logout-btn" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
         </div>
     </header>
 
     <div class="container">
-        <div class="tabs">
-            <div class="tab active" data-tab="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</div>
-            <div class="tab" data-tab="pos"><i class="fas fa-cash-register"></i> Point of Sale</div>
-            <div class="tab" data-tab="inventory"><i class="fas fa-boxes"></i> Inventory Management</div>
-            <div class="tab" data-tab="reports"><i class="fas fa-chart-bar"></i> Reports</div>
+        <!-- Login Form -->
+        <div id="login-container" class="login-container">
+            <div class="login-form">
+                <h2><i class="fas fa-lock"></i> Hardware Store Login</h2>
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password">
+                </div>
+                <button id="login-btn" class="btn btn-success"><i class="fas fa-sign-in-alt"></i> Login</button>
+                
+                <div class="demo-accounts">
+                    <h4><i class="fas fa-info-circle"></i> Demo Accounts</h4>
+                    <ul>
+                        <li><strong>Admin:</strong> admin / admin123</li>
+                        <li><strong>Manager:</strong> manager / manager123</li>
+                        <li><strong>Cashier:</strong> cashier / cashier123</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
-        <!-- Dashboard Tab Content -->
-        <div id="dashboard" class="tab-content active">
-            <h2>Store Overview</h2>
-            <div class="dashboard-summary">
-                <div class="summary-card">
-                    <i class="fas fa-shopping-cart"></i>
-                    <h3>TODAY'S SALES</h3>
-                    <div class="value">KES <span id="today-sales">0.00</span></div>
+        <!-- Main Application (initially hidden) -->
+        <div id="main-application" class="hidden">
+            <div class="tabs">
+                <div class="tab active" data-tab="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</div>
+                <div class="tab" data-tab="pos"><i class="fas fa-cash-register"></i> Point of Sale</div>
+                <div class="tab" data-tab="inventory"><i class="fas fa-boxes"></i> Inventory Management</div>
+                <div class="tab" data-tab="reports"><i class="fas fa-chart-bar"></i> Reports</div>
+                <div class="tab" data-tab="users"><i class="fas fa-users"></i> User Management</div>
+            </div>
+
+            <!-- Dashboard Tab Content -->
+            <div id="dashboard" class="tab-content active">
+                <h2>Store Overview</h2>
+                <div class="dashboard-summary">
+                    <div class="summary-card">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>TODAY'S SALES</h3>
+                        <div class="value">KES <span id="today-sales">0.00</span></div>
+                    </div>
+                    <div class="summary-card">
+                        <i class="fas fa-boxes"></i>
+                        <h3>TOTAL PRODUCTS</h3>
+                        <div class="value"><span id="total-products">0</span></div>
+                    </div>
+                    <div class="summary-card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>LOW STOCK ITEMS</h3>
+                        <div class="value"><span id="low-stock-count">0</span></div>
+                    </div>
+                    <div class="summary-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>MONTHLY REVENUE</h3>
+                        <div class="value">KES <span id="monthly-revenue">0.00</span></div>
+                    </div>
                 </div>
-                <div class="summary-card">
-                    <i class="fas fa-boxes"></i>
-                    <h3>TOTAL PRODUCTS</h3>
-                    <div class="value"><span id="total-products">0</span></div>
+
+                <h2>Recent Sales</h2>
+                <div class="report-results">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Invoice #</th>
+                                <th>Date</th>
+                                <th>Customer</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-sales">
+                            <!-- Recent sales will be populated here -->
+                        </tbody>
+                    </table>
                 </div>
-                <div class="summary-card">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <h3>LOW STOCK ITEMS</h3>
-                    <div class="value"><span id="low-stock-count">0</span></div>
-                </div>
-                <div class="summary-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>MONTHLY REVENUE</h3>
-                    <div class="value">KES <span id="monthly-revenue">0.00</span></div>
+
+                <h2>Low Stock Alert</h2>
+                <div class="report-results">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th>Current Stock</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="low-stock-items">
+                            <!-- Low stock items will be populated here -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-            <h2>Recent Sales</h2>
-            <div class="report-results">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Invoice #</th>
-                            <th>Date</th>
-                            <th>Customer</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody id="recent-sales">
-                        <!-- Recent sales will be populated here -->
-                    </tbody>
-                </table>
+            <!-- POS Tab Content -->
+            <div id="pos" class="tab-content">
+                <div class="pos-container">
+                    <div class="product-section">
+                        <div class="product-search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="product-search" placeholder="Search products by name or category...">
+                        </div>
+                        <div class="product-list" id="product-list">
+                            <!-- Product cards will be inserted here by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="shopping-cart">
+                        <h3><i class="fas fa-shopping-cart"></i> Current Sale</h3>
+                        <div id="cart-items">
+                            <!-- Cart items will be inserted here by JavaScript -->
+                        </div>
+                        <div class="cart-total">
+                            <p>Total: <span>KES <span id="cart-total">0.00</span></span></p>
+                        </div>
+                        <div class="cart-actions">
+                            <button id="process-payment" class="btn btn-success"><i class="fas fa-check"></i> Process Payment</button>
+                            <button id="clear-cart" class="btn btn-danger"><i class="fas fa-trash"></i> Clear Cart</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <h2>Low Stock Alert</h2>
-            <div class="report-results">
-                <table>
+            <!-- Inventory Tab Content -->
+            <div id="inventory" class="tab-content">
+                <div class="inventory-header">
+                    <h2>Inventory Management</h2>
+                    <div class="inventory-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="inventory-search" placeholder="Search inventory...">
+                        </div>
+                        <button id="add-product" class="btn btn-success"><i class="fas fa-plus"></i> Add Product</button>
+                    </div>
+                </div>
+                <table id="inventory-table">
                     <thead>
                         <tr>
-                            <th>Product</th>
+                            <th>ID</th>
+                            <th>Name</th>
                             <th>Category</th>
-                            <th>Current Stock</th>
+                            <th>Price</th>
+                            <th>Stock</th>
                             <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="low-stock-items">
-                        <!-- Low stock items will be populated here -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- POS Tab Content -->
-        <div id="pos" class="tab-content">
-            <div class="pos-container">
-                <div class="product-section">
-                    <div class="product-search">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="product-search" placeholder="Search products by name or category...">
-                    </div>
-                    <div class="product-list" id="product-list">
-                        <!-- Product cards will be inserted here by JavaScript -->
-                    </div>
-                </div>
-                <div class="shopping-cart">
-                    <h3><i class="fas fa-shopping-cart"></i> Current Sale</h3>
-                    <div id="cart-items">
-                        <!-- Cart items will be inserted here by JavaScript -->
-                    </div>
-                    <div class="cart-total">
-                        <p>Total: <span>KES <span id="cart-total">0.00</span></span></p>
-                    </div>
-                    <div class="cart-actions">
-                        <button id="process-payment" class="success"><i class="fas fa-check"></i> Process Payment</button>
-                        <button id="clear-cart" class="danger"><i class="fas fa-trash"></i> Clear Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Inventory Tab Content -->
-        <div id="inventory" class="tab-content">
-            <div class="inventory-header">
-                <h2>Inventory Management</h2>
-                <div class="inventory-actions">
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="inventory-search" placeholder="Search inventory...">
-                    </div>
-                    <button id="add-product" class="success"><i class="fas fa-plus"></i> Add Product</button>
-                </div>
-            </div>
-            <table id="inventory-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th>Stock</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Inventory items will be inserted here by JavaScript -->
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Reports Tab Content -->
-        <div id="reports" class="tab-content">
-            <h2>Sales Reports</h2>
-            <div class="report-filters">
-                <select id="report-type">
-                    <option value="daily">Daily Sales</option>
-                    <option value="weekly">Weekly Sales</option>
-                    <option value="monthly">Monthly Sales</option>
-                    <option value="custom">Custom Range</option>
-                </select>
-                <input type="date" id="report-start-date">
-                <input type="date" id="report-end-date" class="hidden">
-                <button id="generate-report"><i class="fas fa-sync"></i> Generate Report</button>
-                <button id="export-report" class="secondary"><i class="fas fa-download"></i> Export</button>
-            </div>
-            <div id="report-results">
-                <div class="chart-container">
-                    <p>Select report parameters to generate charts</p>
-                </div>
-                <table class="hidden">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Invoice #</th>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Amount</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Report results will be inserted here by JavaScript -->
+                        <!-- Inventory items will be inserted here by JavaScript -->
                     </tbody>
                 </table>
+            </div>
+
+            <!-- Reports Tab Content -->
+            <div id="reports" class="tab-content">
+                <h2>Sales Reports</h2>
+                <div class="report-filters">
+                    <select id="report-type">
+                        <option value="daily">Daily Sales</option>
+                        <option value="weekly">Weekly Sales</option>
+                        <option value="monthly">Monthly Sales</option>
+                        <option value="custom">Custom Range</option>
+                    </select>
+                    <input type="date" id="report-start-date">
+                    <input type="date" id="report-end-date" class="hidden">
+                    <button id="generate-report" class="btn"><i class="fas fa-sync"></i> Generate Report</button>
+                    <button id="export-report" class="btn"><i class="fas fa-download"></i> Export</button>
+                </div>
+                <div id="report-results">
+                    <div class="chart-container">
+                        <p>Select report parameters to generate charts</p>
+                    </div>
+                    <table class="hidden">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Invoice #</th>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Report results will be inserted here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- User Management Tab Content -->
+            <div id="users" class="tab-content">
+                <div class="inventory-header">
+                    <h2><i class="fas fa-users"></i> User Management</h2>
+                    <button id="add-user" class="btn btn-success"><i class="fas fa-user-plus"></i> Add User</button>
+                </div>
+                
+                <div class="user-management">
+                    <div class="user-item">
+                        <div class="user-details">
+                            <div class="user-avatar">A</div>
+                            <div>
+                                <div>Administrator User</div>
+                                <div class="user-role role-admin">Administrator</div>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn edit-user" data-id="1"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger delete-user" data-id="1"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    </div>
+                    
+                    <div class="user-item">
+                        <div class="user-details">
+                            <div class="user-avatar">M</div>
+                            <div>
+                                <div>Manager User</div>
+                                <div class="user-role role-manager">Manager</div>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn edit-user" data-id="2"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger delete-user" data-id="2"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    </div>
+                    
+                    <div class="user-item">
+                        <div class="user-details">
+                            <div class="user-avatar">C</div>
+                            <div>
+                                <div>Cashier User</div>
+                                <div class="user-role role-cashier">Cashier</div>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn edit-user" data-id="3"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger delete-user" data-id="3"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1029,8 +1242,8 @@
                 </div>
             </div>
             <div style="text-align: center; margin: 20px;">
-                <button id="print-invoice"><i class="fas fa-print"></i> Print Invoice</button>
-                <button id="close-invoice" class="secondary"><i class="fas fa-times"></i> Close</button>
+                <button id="print-invoice" class="btn"><i class="fas fa-print"></i> Print Invoice</button>
+                <button id="close-invoice" class="btn btn-secondary"><i class="fas fa-times"></i> Close</button>
             </div>
         </div>
     </div>
@@ -1069,8 +1282,47 @@
                         <input type="number" min="0" id="product-quantity" required>
                     </div>
                     <div class="form-actions">
-                        <button type="button" id="cancel-product" class="secondary">Cancel</button>
-                        <button type="submit" class="success">Save Product</button>
+                        <button type="button" id="cancel-product" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" class="btn btn-success">Save Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit User Modal -->
+    <div class="modal-overlay" id="user-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-user"></i> <span id="user-modal-title">Add New User</span></h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="user-form">
+                    <input type="hidden" id="user-id">
+                    <div class="form-group">
+                        <label for="user-username">Username</label>
+                        <input type="text" id="user-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-password">Password</label>
+                        <input type="password" id="user-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-fullname">Full Name</label>
+                        <input type="text" id="user-fullname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-role">Role</label>
+                        <select id="user-role" required>
+                            <option value="cashier">Cashier</option>
+                            <option value="manager">Manager</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="cancel-user" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" class="btn btn-success">Save User</button>
                     </div>
                 </form>
             </div>
@@ -1078,6 +1330,157 @@
     </div>
 
     <script>
+        // User management functions
+        const UserManager = {
+            // Get all users from localStorage
+            getUsers() {
+                const users = localStorage.getItem('hardwareUsers');
+                return users ? JSON.parse(users) : [];
+            },
+            
+            // Save users to localStorage
+            saveUsers(users) {
+                localStorage.setItem('hardwareUsers', JSON.stringify(users));
+            },
+            
+            // Initialize default users if none exist
+            initializeUsers() {
+                if (this.getUsers().length === 0) {
+                    const defaultUsers = [
+                        { 
+                            id: 1, 
+                            username: 'admin', 
+                            password: 'admin123', 
+                            fullName: 'Administrator User', 
+                            role: 'admin',
+                            createdAt: new Date().toISOString()
+                        },
+                        { 
+                            id: 2, 
+                            username: 'manager', 
+                            password: 'manager123', 
+                            fullName: 'Manager User', 
+                            role: 'manager',
+                            createdAt: new Date().toISOString()
+                        },
+                        { 
+                            id: 3, 
+                            username: 'cashier', 
+                            password: 'cashier123', 
+                            fullName: 'Cashier User', 
+                            role: 'cashier',
+                            createdAt: new Date().toISOString()
+                        }
+                    ];
+                    this.saveUsers(defaultUsers);
+                }
+            },
+            
+            // Add a new user
+            addUser(user) {
+                const users = this.getUsers();
+                // Generate a unique ID
+                user.id = users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1;
+                user.createdAt = new Date().toISOString();
+                users.push(user);
+                this.saveUsers(users);
+                return user;
+            },
+            
+            // Find user by username
+            findUserByUsername(username) {
+                return this.getUsers().find(user => user.username === username);
+            },
+            
+            // Authenticate user
+            authenticate(username, password) {
+                const user = this.findUserByUsername(username);
+                if (user && user.password === password) {
+                    return user;
+                }
+                return null;
+            }
+        };
+
+        // Authentication state management
+        const AuthManager = {
+            currentUser: null,
+            
+            // Initialize authentication
+            init() {
+                // Check if user is logged in
+                const savedUser = localStorage.getItem('hardwareCurrentUser');
+                if (savedUser) {
+                    this.currentUser = JSON.parse(savedUser);
+                    this.updateUI();
+                }
+                
+                // Initialize default users if needed
+                UserManager.initializeUsers();
+            },
+            
+            // Login function
+            login(username, password) {
+                const user = UserManager.authenticate(username, password);
+                if (user) {
+                    this.currentUser = user;
+                    localStorage.setItem('hardwareCurrentUser', JSON.stringify(user));
+                    this.updateUI();
+                    return true;
+                }
+                return false;
+            },
+            
+            // Logout function
+            logout() {
+                this.currentUser = null;
+                localStorage.removeItem('hardwareCurrentUser');
+                this.updateUI();
+            },
+            
+            // Update UI based on authentication state
+            updateUI() {
+                if (this.currentUser) {
+                    // User is logged in
+                    document.getElementById('login-container').classList.add('hidden');
+                    document.getElementById('main-application').classList.remove('hidden');
+                    document.getElementById('main-nav').classList.remove('hidden');
+                    document.getElementById('user-info').classList.remove('hidden');
+                    document.getElementById('user-name').textContent = this.currentUser.fullName;
+                    document.getElementById('user-role').textContent = this.currentUser.role;
+                    document.getElementById('user-avatar').textContent = this.currentUser.fullName.charAt(0);
+                    
+                    // Set role-based UI elements
+                    this.applyPermissions();
+                } else {
+                    // User is not logged in
+                    document.getElementById('login-container').classList.remove('hidden');
+                    document.getElementById('main-application').classList.add('hidden');
+                    document.getElementById('main-nav').classList.add('hidden');
+                    document.getElementById('user-info').classList.add('hidden');
+                }
+            },
+            
+            // Apply role-based permissions to UI
+            applyPermissions() {
+                const isAdmin = this.currentUser.role === 'admin';
+                const isManager = this.currentUser.role === 'manager' || isAdmin;
+                
+                // Show/hide tabs based on permissions
+                document.querySelectorAll('.tab').forEach(tab => {
+                    const tabName = tab.getAttribute('data-tab');
+                    if (tabName === 'users' && !isAdmin) {
+                        tab.style.display = 'none';
+                    } else {
+                        tab.style.display = 'flex';
+                    }
+                });
+                
+                // Show/hide user management button
+                document.getElementById('add-user').style.display = isAdmin ? 'block' : 'none';
+            }
+        };
+
         // Data management with localStorage
         const DataManager = {
             // Products
@@ -1112,12 +1515,12 @@
                         { id: 4, name: "Electrical Tape", category: "electrical", price: 777.20, quantity: 50 },
                         { id: 5, name: "Paint Brush Set", category: "paint", price: 1944.95, quantity: 20 },
                         { id: 6, name: "Nails", category: "hardware", price: 517.70, quantity: 100 },
-                        { id: 7, name: "Drill", category: "tools", price:12973.70, quantity: 5 },
+                        { id: 7, name: "Drill", category: "tools", price: 12973.70, quantity: 5 },
                         { id: 8, name: "Saw", category: "tools", price: 3891.20, quantity: 8 },
                         { id: 9, name: "Level", category: "tools", price: 2074.70, quantity: 12 },
-                        { id: 10, name: "Pliers", category: "tools", price:1296.20, quantity: 20 },
+                        { id: 10, name: "Pliers", category: "tools", price: 1296.20, quantity: 20 },
                         { id: 11, name: "Wrench Set", category: "tools", price: 5188.70, quantity: 7 },
-                        { id: 12, name: "Safety Goggles", category: "tools", price:1166.45, quantity: 30 },
+                        { id: 12, name: "Safety Goggles", category: "tools", price: 1166.45, quantity: 30 },
                         { id: 13, name: "Extension Cord", category: "electrical", price: 2593.70, quantity: 25 },
                         { id: 14, name: "Light Bulbs", category: "electrical", price: 647.45, quantity: 50 },
                         { id: 15, name: "Paint Roller", category: "paint", price: 906.95, quantity: 40 },
@@ -1139,6 +1542,7 @@
             sales: [],
             currentTab: 'dashboard',
             editingProductId: null,
+            editingUserId: null,
             
             init() {
                 // Initialize data
@@ -1146,13 +1550,11 @@
                 this.products = DataManager.getProducts();
                 this.sales = DataManager.getSales();
                 
+                // Initialize authentication
+                AuthManager.init();
+                
                 // Set up event listeners
                 this.setupEventListeners();
-                
-                // Render initial views
-                this.renderDashboard();
-                this.renderProducts();
-                this.renderInventory();
                 
                 // Set current date in reports
                 const today = new Date().toISOString().split('T')[0];
@@ -1160,6 +1562,31 @@
             },
             
             setupEventListeners() {
+                // Login functionality
+                document.getElementById('login-btn').addEventListener('click', () => {
+                    const username = document.getElementById('login-username').value;
+                    const password = document.getElementById('login-password').value;
+                    
+                    if (username && password) {
+                        if (AuthManager.login(username, password)) {
+                            alert('Login successful! Welcome back, ' + username);
+                            this.renderDashboard();
+                            this.renderProducts();
+                            this.renderInventory();
+                        } else {
+                            alert('Invalid username or password. Please try again.');
+                        }
+                    } else {
+                        alert('Please enter both username and password.');
+                    }
+                });
+                
+                // Logout functionality
+                document.getElementById('logout-btn').addEventListener('click', () => {
+                    AuthManager.logout();
+                    alert('You have been logged out.');
+                });
+                
                 // Tab navigation
                 document.querySelectorAll('.tab, .nav-link').forEach(element => {
                     element.addEventListener('click', (e) => {
@@ -1203,6 +1630,39 @@
                     this.saveProduct();
                 });
                 
+                // User management functionality
+                document.getElementById('add-user').addEventListener('click', () => {
+                    this.showUserModal();
+                });
+                
+                document.getElementById('cancel-user').addEventListener('click', () => {
+                    this.hideUserModal();
+                });
+                
+                document.querySelector('#user-modal .modal-close').addEventListener('click', () => {
+                    this.hideUserModal();
+                });
+                
+                document.getElementById('user-form').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.saveUser();
+                });
+                
+                // Edit/Delete user buttons
+                document.querySelectorAll('.edit-user').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = parseInt(btn.dataset.id);
+                        this.editUser(id);
+                    });
+                });
+                
+                document.querySelectorAll('.delete-user').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = parseInt(btn.dataset.id);
+                        this.deleteUser(id);
+                    });
+                });
+                
                 // Invoice functionality
                 document.getElementById('print-invoice').addEventListener('click', () => {
                     window.print();
@@ -1220,6 +1680,10 @@
                 
                 document.getElementById('generate-report').addEventListener('click', () => {
                     this.generateReport();
+                });
+
+                document.getElementById('export-report').addEventListener('click', () => {
+                    this.exportReport();
                 });
             },
             
@@ -1258,6 +1722,8 @@
                     this.renderDashboard();
                 } else if (tabId === 'inventory') {
                     this.renderInventory();
+                } else if (tabId === 'users') {
+                    this.renderUsers();
                 }
             },
             
@@ -1429,7 +1895,9 @@
                     id: new Date().getTime(),
                     date: new Date().toISOString(),
                     items: [...this.cart],
-                    total: this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+                    total: this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                    userId: AuthManager.currentUser.id,
+                    userName: AuthManager.currentUser.username
                 };
                 
                 // Save sale
@@ -1517,8 +1985,8 @@
                         <td>${product.quantity}</td>
                         <td><span class="badge ${statusClass}">${statusText}</span></td>
                         <td class="action-buttons">
-                            <button class="edit-product" data-id="${product.id}"><i class="fas fa-edit"></i> Edit</button>
-                            <button class="delete-product danger" data-id="${product.id}"><i class="fas fa-trash"></i> Delete</button>
+                            <button class="btn edit-product" data-id="${product.id}"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger delete-product" data-id="${product.id}"><i class="fas fa-trash"></i> Delete</button>
                         </td>
                     `;
                     inventoryTable.appendChild(row);
@@ -1652,7 +2120,7 @@
                         row.innerHTML = `
                             <td>${sale.id}</td>
                             <td>${new Date(sale.date).toLocaleDateString()}</td>
-                            <td>Walk-in Customer</td>
+                            <td>${sale.userName}</td>
                             <td>KES ${sale.total.toFixed(2)}</td>
                         `;
                         recentSales.appendChild(row);
@@ -1693,187 +2161,128 @@
                     });
                 }
             },
-                      toggleReportDateFields(reportType) {
+            
+            renderUsers() {
+                const users = UserManager.getUsers();
+                const userManagement = document.querySelector('.user-management');
+                userManagement.innerHTML = '';
+                
+                users.forEach(user => {
+                    const userItem = document.createElement('div');
+                    userItem.className = 'user-item';
+                    
+                    userItem.innerHTML = `
+                        <div class="user-details">
+                            <div class="user-avatar">${user.fullName.charAt(0)}</div>
+                            <div>
+                                <div>${user.fullName}</div>
+                                <div class="user-role role-${user.role}">${user.role}</div>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn edit-user" data-id="${user.id}"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger delete-user" data-id="${user.id}"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    `;
+                    
+                    userManagement.appendChild(userItem);
+                });
+                
+                // Add event listeners
+                document.querySelectorAll('.edit-user').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = parseInt(btn.dataset.id);
+                        this.editUser(id);
+                    });
+                });
+                
+                document.querySelectorAll('.delete-user').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = parseInt(btn.dataset.id);
+                        this.deleteUser(id);
+                    });
+                });
+            },
+            
+            showUserModal() {
+                this.editingUserId = null;
+                document.getElementById('user-modal-title').textContent = 'Add New User';
+                document.getElementById('user-form').reset();
+                document.getElementById('user-id').value = '';
+                document.getElementById('user-modal').style.display = 'flex';
+            },
+            
+            hideUserModal() {
+                document.getElementById('user-modal').style.display = 'none';
+            },
+            
+            editUser(id) {
+                const users = UserManager.getUsers();
+                const user = users.find(u => u.id === id);
+                if (!user) return;
+                
+                this.editingUserId = id;
+                document.getElementById('user-modal-title').textContent = 'Edit User';
+                document.getElementById('user-id').value = user.id;
+                document.getElementById('user-username').value = user.username;
+                document.getElementById('user-password').value = user.password;
+                document.getElementById('user-fullname').value = user.fullName;
+                document.getElementById('user-role').value = user.role;
+                
+                document.getElementById('user-modal').style.display = 'flex';
+            },
+            
+            saveUser() {
+                const id = this.editingUserId || Math.max(...UserManager.getUsers().map(u => u.id), 0) + 1;
+                const username = document.getElementById('user-username').value;
+                const password = document.getElementById('user-password').value;
+                const fullName = document.getElementById('user-fullname').value;
+                const role = document.getElementById('user-role').value;
+                
+                if (this.editingUserId) {
+                    // Update existing user
+                    const users = UserManager.getUsers();
+                    const index = users.findIndex(u => u.id === this.editingUserId);
+                    users[index] = { id, username, password, fullName, role, createdAt: users[index].createdAt };
+                    UserManager.saveUsers(users);
+                } else {
+                    // Add new user
+                    UserManager.addUser({ username, password, fullName, role });
+                }
+                
+                // Refresh views
+                this.renderUsers();
+                
+                // Hide modal
+                this.hideUserModal();
+            },
+            
+            deleteUser(id) {
+                if (!confirm('Are you sure you want to delete this user?')) return;
+                
+                const users = UserManager.getUsers().filter(u => u.id !== id);
+                UserManager.saveUsers(users);
+                
+                // Refresh views
+                this.renderUsers();
+            },
+            
+            toggleReportDateFields(reportType) {
                 const endDateField = document.getElementById('report-end-date');
-                const startDateField = document.getElementById('report-start-date');
                 
                 if (reportType === 'custom') {
                     endDateField.classList.remove('hidden');
-                    // Set end date to start date if not already set
-                    if (!endDateField.value) {
-                        endDateField.value = startDateField.value;
-                    }
                 } else {
                     endDateField.classList.add('hidden');
                 }
             },
             
             generateReport() {
-                const reportType = document.getElementById('report-type').value;
-                const startDate = new Date(document.getElementById('report-start-date').value);
-                const endDateField = document.getElementById('report-end-date');
-                
-                let endDate;
-                let reportData = [];
-                
-                // Validate date input
-                if (!startDate.getTime()) {
-                    alert('Please select a valid start date');
-                    return;
-                }
-                
-                // Calculate date range based on report type
-                if (reportType === 'daily') {
-                    endDate = new Date(startDate);
-                    endDate.setDate(endDate.getDate() + 1);
-                } else if (reportType === 'weekly') {
-                    endDate = new Date(startDate);
-                    endDate.setDate(endDate.getDate() + 7);
-                } else if (reportType === 'monthly') {
-                    endDate = new Date(startDate);
-                    endDate.setMonth(endDate.getMonth() + 1);
-                } else if (reportType === 'custom') {
-                    endDate = new Date(endDateField.value);
-                    if (!endDate.getTime()) {
-                        alert('Please select a valid end date');
-                        return;
-                    }
-                    // Ensure end date is after start date
-                    if (endDate < startDate) {
-                        alert('End date must be after start date');
-                        return;
-                    }
-                    // Include the entire end day
-                    endDate.setDate(endDate.getDate() + 1);
-                }
-                
-                // Filter sales data based on date range
-                reportData = this.sales.filter(sale => {
-                    const saleDate = new Date(sale.date);
-                    return saleDate >= startDate && saleDate < endDate;
-                });
-                
-                // Display report results
-                this.displayReportResults(reportData, reportType, startDate, endDate);
-            },
-
-            displayReportResults(reportData, reportType, startDate, endDate) {
-                const reportResults = document.getElementById('report-results');
-                const table = reportResults.querySelector('table');
-                const chartContainer = reportResults.querySelector('.chart-container');
-                const tbody = table.querySelector('tbody');
-                
-                // Clear previous results
-                tbody.innerHTML = '';
-                
-                // Generate date range text for display
-                let dateRangeText = '';
-                if (reportType === 'daily') {
-                    dateRangeText = `for ${startDate.toLocaleDateString()}`;
-                } else if (reportType === 'weekly') {
-                    dateRangeText = `for the week of ${startDate.toLocaleDateString()}`;
-                } else if (reportType === 'monthly') {
-                    dateRangeText = `for ${startDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`;
-                } else {
-                    const adjustedEndDate = new Date(endDate);
-                    adjustedEndDate.setDate(adjustedEndDate.getDate() - 1);
-                    dateRangeText = `from ${startDate.toLocaleDateString()} to ${adjustedEndDate.toLocaleDateString()}`;
-                }
-                
-                // Update chart container text
-                chartContainer.innerHTML = `
-                    <div style="text-align: center; padding: 20px;">
-                        <h3>Sales Report ${dateRangeText}</h3>
-                        <p>Total Sales: <strong>KES ${reportData.reduce((sum, sale) => sum + sale.total, 0).toFixed(2)}</strong></p>
-                        <p>Number of Transactions: <strong>${reportData.length}</strong></p>
-                        <p>Average Sale: <strong>KES ${(reportData.reduce((sum, sale) => sum + sale.total, 0) / (reportData.length || 1)).toFixed(2)}</strong></p>
-                    </div>
-                `;
-                
-                // Show the chart container and hide the table for now
-                chartContainer.classList.remove('hidden');
-                table.classList.add('hidden');
-                
-                // If we have data, show the detailed table view option
-                if (reportData.length > 0) {
-                    const viewToggle = document.createElement('button');
-                    viewToggle.textContent = 'View Detailed Report';
-                    viewToggle.className = 'secondary';
-                    viewToggle.style.marginTop = '15px';
-                    viewToggle.onclick = () => {
-                        if (table.classList.contains('hidden')) {
-                            // Populate table
-                            reportData.forEach(sale => {
-                                sale.items.forEach(item => {
-                                    const row = document.createElement('tr');
-                                    row.innerHTML = `
-                                        <td>${new Date(sale.date).toLocaleDateString()}</td>
-                                        <td>${sale.id}</td>
-                                        <td>${item.name}</td>
-                                        <td>${item.quantity}</td>
-                                        <td>KES ${(item.price * item.quantity).toFixed(2)}</td>
-                                    `;
-                                    tbody.appendChild(row);
-                                });
-                            });
-                            
-                            table.classList.remove('hidden');
-                            viewToggle.textContent = 'Hide Detailed Report';
-                        } else {
-                            table.classList.add('hidden');
-                            viewToggle.textContent = 'View Detailed Report';
-                        }
-                    };
-                    
-                    chartContainer.appendChild(viewToggle);
-                }
-                
-                // Also add export functionality
-                const exportButton = document.createElement('button');
-                exportButton.textContent = 'Export to CSV';
-                exportButton.className = 'success';
-                exportButton.style.marginLeft = '10px';
-                exportButton.onclick = () => this.exportReportToCSV(reportData, `${reportType}_report_${new Date().getTime()}`);
-                chartContainer.appendChild(exportButton);
-            },
-
-            exportReportToCSV(reportData, filename) {
-                if (reportData.length === 0) {
-                    alert('No data to export');
-                    return;
-                }
-                
-                // Create CSV content
-                let csvContent = 'Date,Invoice ID,Product,Quantity,Price,Total\n';
-                
-                reportData.forEach(sale => {
-                    sale.items.forEach(item => {
-                        csvContent += `"${new Date(sale.date).toLocaleDateString()}","${sale.id}","${item.name}","${item.quantity}","${item.price}","${(item.price * item.quantity).toFixed(2)}"\n`;
-                    });
-                });
-                
-                // Add summary
-                const totalSales = reportData.reduce((sum, sale) => sum + sale.total, 0);
-                csvContent += `\n\nSummary,,\nTotal Sales,${totalSales.toFixed(2)}\nNumber of Transactions,${reportData.length}\nAverage Sale,${(totalSales / reportData.length).toFixed(2)}`;
-                
-                // Create download link
-                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-                const link = document.createElement('a');
-                const url = URL.createObjectURL(blob);
-                
-                link.setAttribute('href', url);
-                link.setAttribute('download', `${filename}.csv`);
-                link.style.visibility = 'hidden';
-                
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
+                alert('Report generation would be implemented here with date filtering.');
             },
 
             exportReport() {
-                // This function would handle exporting the current report
-                // For now, we'll just alert the user
-                alert('Export functionality would be implemented here. The current report would be exported in the selected format.');
+                alert('Export functionality would be implemented here.');
             }
         };
 
