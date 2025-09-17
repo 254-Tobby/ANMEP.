@@ -2278,7 +2278,165 @@
             },
             
             generateReport() {
-                alert('Report generation would be implemented here with date filtering.');
+                 const reportType = document.getElementById('report-type').value;
+                const startDate = new Date(document.getElementById('report-start-date').value);
+                const endDateField = document.getElementById('report-end-date');
+               
+                let endDate;
+                let reportData = [];
+               
+                // Validate date input
+                if (!startDate.getTime()) {
+                    alert('Please select a valid start date');
+                    return;
+                }
+               
+                // Calculate date range based on report type
+                if (reportType === 'daily') {
+                    endDate = new Date(startDate);
+                    endDate.setDate(endDate.getDate() + 1);
+                } else if (reportType === 'weekly') {
+                    endDate = new Date(startDate);
+                    endDate.setDate(endDate.getDate() + 7);
+                } else if (reportType === 'monthly') {
+                    endDate = new Date(startDate);
+                    endDate.setMonth(endDate.getMonth() + 1);
+                } else if (reportType === 'custom') {
+                    endDate = new Date(endDateField.value);
+                    if (!endDate.getTime()) {
+                        alert('Please select a valid end date');
+                        return;
+                    }
+                    // Ensure end date is after start date
+                    if (endDate < startDate) {
+                        alert('End date must be after start date');
+                        return;
+                    }
+                    // Include the entire end day
+                    endDate.setDate(endDate.getDate() + 1);
+                }
+               
+                // Filter sales data based on date range
+                reportData = this.sales.filter(sale => {
+                    const saleDate = new Date(sale.date);
+                    return saleDate >= startDate && saleDate < endDate;
+                });
+               
+                // Display report results
+                this.displayReportResults(reportData, reportType, startDate, endDate);
+            },
+
+            displayReportResults(reportData, reportType, startDate, endDate) {
+                const reportResults = document.getElementById('report-results');
+                const table = reportResults.querySelector('table');
+                const chartContainer = reportResults.querySelector('.chart-container');
+                const tbody = table.querySelector('tbody');
+               
+                // Clear previous results
+                tbody.innerHTML = '';
+               
+                // Generate date range text for display
+                let dateRangeText = '';
+                if (reportType === 'daily') {
+                    dateRangeText = `for ${startDate.toLocaleDateString()}`;
+                } else if (reportType === 'weekly') {
+                    dateRangeText = `for the week of ${startDate.toLocaleDateString()}`;
+                } else if (reportType === 'monthly') {
+                    dateRangeText = `for ${startDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`;
+                } else {
+                    const adjustedEndDate = new Date(endDate);
+                    adjustedEndDate.setDate(adjustedEndDate.getDate() - 1);
+                    dateRangeText = `from ${startDate.toLocaleDateString()} to ${adjustedEndDate.toLocaleDateString()}`;
+                }
+               
+                // Update chart container text
+                chartContainer.innerHTML = `
+                    <div style="text-align: center; padding: 20px;">
+                        <h3>Sales Report ${dateRangeText}</h3>
+                        <p>Total Sales: <strong>KES ${reportData.reduce((sum, sale) => sum + sale.total, 0).toFixed(2)}</strong></p>
+                        <p>Number of Transactions: <strong>${reportData.length}</strong></p>
+                        <p>Average Sale: <strong>KES ${(reportData.reduce((sum, sale) => sum + sale.total, 0) / (reportData.length || 1)).toFixed(2)}</strong></p>
+                    </div>
+                `;
+               
+                // Show the chart container and hide the table for now
+                chartContainer.classList.remove('hidden');
+                table.classList.add('hidden');
+               
+                // If we have data, show the detailed table view option
+                if (reportData.length > 0) {
+                    const viewToggle = document.createElement('button');
+                    viewToggle.textContent = 'View Detailed Report';
+                    viewToggle.className = 'secondary';
+                    viewToggle.style.marginTop = '15px';
+                    viewToggle.onclick = () => {
+                        if (table.classList.contains('hidden')) {
+                            // Populate table
+                            reportData.forEach(sale => {
+                                sale.items.forEach(item => {
+                                    const row = document.createElement('tr');
+                                    row.innerHTML = `
+                                        <td>${new Date(sale.date).toLocaleDateString()}</td>
+                                        <td>${sale.id}</td>
+                                        <td>${item.name}</td>
+                                        <td>${item.quantity}</td>
+                                        <td>KES ${(item.price * item.quantity).toFixed(2)}</td>
+                                    `;
+                                    tbody.appendChild(row);
+                                });
+                            });
+                           
+                            table.classList.remove('hidden');
+                            viewToggle.textContent = 'Hide Detailed Report';
+                        } else {
+                            table.classList.add('hidden');
+                            viewToggle.textContent = 'View Detailed Report';
+                        }
+                    };
+                   
+                    chartContainer.appendChild(viewToggle);
+                }
+               
+                // Also add export functionality
+                const exportButton = document.createElement('button');
+                exportButton.textContent = 'Export to CSV';
+                exportButton.className = 'success';
+                exportButton.style.marginLeft = '10px';
+                exportButton.onclick = () => this.exportReportToCSV(reportData, `${reportType}_report_${new Date().getTime()}`);
+                chartContainer.appendChild(exportButton);
+            },
+
+            exportReportToCSV(reportData, filename) {
+                if (reportData.length === 0) {
+                    alert('No data to export');
+                    return;
+                }
+               
+                // Create CSV content
+                let csvContent = 'Date,Invoice ID,Product,Quantity,Price,Total\n';
+               
+                reportData.forEach(sale => {
+                    sale.items.forEach(item => {
+                        csvContent += `"${new Date(sale.date).toLocaleDateString()}","${sale.id}","${item.name}","${item.quantity}","${item.price}","${(item.price * item.quantity).toFixed(2)}"\n`;
+                    });
+                });
+               
+                // Add summary
+                const totalSales = reportData.reduce((sum, sale) => sum + sale.total, 0);
+                csvContent += `\n\nSummary,,\nTotal Sales,${totalSales.toFixed(2)}\nNumber of Transactions,${reportData.length}\nAverage Sale,${(totalSales / reportData.length).toFixed(2)}`;
+               
+                // Create download link
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                const link = document.createElement('a');
+                const url = URL.createObjectURL(blob);
+               
+                link.setAttribute('href', url);
+                link.setAttribute('download', `${filename}.csv`);
+                link.style.visibility = 'hidden';
+               
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);   
             },
 
             exportReport() {
