@@ -1555,6 +1555,11 @@
                 
                 // Set up event listeners
                 this.setupEventListeners();
+                //render initial views
+                this.renderDashboard();
+                this.renderProducts();
+                this.renderInventory();
+                
                 
                 // Set current date in reports
                 const today = new Date().toISOString().split('T')[0];
