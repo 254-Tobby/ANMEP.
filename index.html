@@ -26,34 +26,43 @@
             padding: 20px;
         }
 
-        /* Header Styles */
+        /* Header Styles - Minimized to half size */
         header {
             background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
             color: white;
-            padding: 15px 0;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: sticky;
+            padding: 8px 0; /* Reduced from 15px */
+            margin-bottom: 15px; /* Reduced from 25px */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
+            transition: transform 0.3s ease;
+            height: 50px; /* Fixed height for consistency */
+        }
+
+        header.hidden {
+            transform: translateY(-100%);
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 100%; /* Ensure content fits in smaller header */
         }
 
         .logo {
             display: flex;
             align-items: center;
-            font-size: 24px;
+            font-size: 18px; /* Reduced from 24px */
             font-weight: bold;
         }
 
         .logo i {
-            margin-right: 10px;
-            font-size: 28px;
+            margin-right: 8px; /* Reduced from 10px */
+            font-size: 20px; /* Reduced from 28px */
         }
 
         nav ul {
@@ -62,45 +71,48 @@
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin-left: 12px; /* Reduced from 20px */
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 4px;
+            padding: 6px 10px; /* Reduced from 8px 15px */
+            border-radius: 3px; /* Reduced from 4px */
             transition: all 0.3s;
             display: flex;
             align-items: center;
+            font-size: 13px; /* Smaller font for nav items */
         }
 
         nav ul li a i {
-            margin-right: 8px;
+            margin-right: 6px; /* Reduced from 8px */
+            font-size: 13px; /* Smaller icons */
         }
 
         nav ul li a:hover, nav ul li a.active {
             background-color: #3498db;
-            transform: translateY(-2px);
+            transform: translateY(-1px); /* Reduced from -2px */
         }
 
         .user-info {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px; /* Reduced from 10px */
             color: white;
+            font-size: 13px; /* Smaller font */
         }
 
         .user-avatar {
-            width: 35px;
-            height: 35px;
+            width: 25px; /* Reduced from 35px */
+            height: 25px; /* Reduced from 35px */
             border-radius: 50%;
             background: #3498db;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 12px; /* Reduced from 16px */
         }
 
         /* Login Form Styles */
@@ -108,7 +120,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 70vh;
+            min-height: 100vh;
         }
 
         .login-form {
@@ -156,7 +168,7 @@
             background-color: #3498db;
             color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 10px 16px; /* Slightly reduced */
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s;
@@ -164,10 +176,12 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            width: 100%;
+            font-size: 14px; /* Slightly smaller */
         }
 
         .btn i {
-            margin-right: 8px;
+            margin-right: 6px; /* Reduced from 8px */
         }
 
         .btn:hover {
@@ -186,6 +200,8 @@
 
         .btn-danger {
             background-color: #e74c3c;
+            padding: 8px 12px; /* Smaller for logout button */
+            font-size: 12px; /* Smaller font */
         }
 
         .btn-danger:hover {
@@ -214,6 +230,7 @@
             margin-bottom: 5px;
         }
 
+        /* Rest of the CSS remains the same */
         /* Tab Navigation */
         .tabs {
             display: flex;
@@ -402,7 +419,7 @@
             padding: 20px;
             border-radius: 8px;
             height: fit-content;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
         .shopping-cart h3 {
@@ -434,8 +451,6 @@
 
         .cart-item-info {
             flex: 1;
-            display: flex;
-            flex-direction: column;
         }
 
         .cart-item-name {
@@ -711,10 +726,10 @@
             margin-bottom: 30px;
             padding-bottom: 20px;
             border-bottom: 2px solid #3498db;
-            color: #2c3e50;
         }
 
         .invoice-header h1 {
+            color: #2c3e50;
             margin-bottom: 10px;
         }
 
@@ -811,17 +826,17 @@
             .header-content {
                 flex-direction: column;
                 text-align: center;
-                gap: 15px;
+                gap: 10px; /* Reduced from 15px */
             }
             
             nav ul {
-                margin-top: 15px;
+                margin-top: 10px; /* Reduced from 15px */
                 flex-wrap: wrap;
                 justify-content: center;
             }
             
             nav ul li {
-                margin: 5px;
+                margin: 3px; /* Reduced from 5px */
             }
             
             .tabs {
@@ -923,7 +938,7 @@
     </style>
 </head>
 <body>
-    <header>
+    <header id="main-header">
         <div class="container header-content">
             <div class="logo">
                 <i class="fas fa-hard-hat"></i>
@@ -935,7 +950,7 @@
                     <li><a href="#" class="nav-link" data-tab="pos"><i class="fas fa-cash-register"></i> POS</a></li>
                     <li><a href="#" class="nav-link" data-tab="inventory"><i class="fas fa-boxes"></i> Inventory</a></li>
                     <li><a href="#" class="nav-link" data-tab="reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
-                    <li><a href="#" class="nav-link" data-tab="users"><i class="fas fa-users"></i> Users</a></li>
+                    <li id="users-tab-nav" class="hidden"><a href="#" class="nav-link" data-tab="users"><i class="fas fa-users"></i> Users</a></li>
                 </ul>
             </nav>
             <div id="user-info" class="user-info hidden">
@@ -949,7 +964,7 @@
         </div>
     </header>
 
-    <div class="container">
+    <div class="container" style="margin-top: 60px;"> <!-- Reduced from 80px to account for smaller header -->
         <!-- Login Form -->
         <div id="login-container" class="login-container">
             <div class="login-form">
@@ -982,7 +997,7 @@
                 <div class="tab" data-tab="pos"><i class="fas fa-cash-register"></i> Point of Sale</div>
                 <div class="tab" data-tab="inventory"><i class="fas fa-boxes"></i> Inventory Management</div>
                 <div class="tab" data-tab="reports"><i class="fas fa-chart-bar"></i> Reports</div>
-                <div class="tab" data-tab="users"><i class="fas fa-users"></i> User Management</div>
+                <div id="users-tab" class="tab hidden" data-tab="users"><i class="fas fa-users"></i> User Management</div>
             </div>
 
             <!-- Dashboard Tab Content -->
@@ -992,7 +1007,7 @@
                     <div class="summary-card">
                         <i class="fas fa-shopping-cart"></i>
                         <h3>TODAY'S SALES</h3>
-                        <div class="value">KES <span id="today-sales">00,000,000.00</span></div>
+                        <div class="value">KES <span id="today-sales">0.00</span></div>
                     </div>
                     <div class="summary-card">
                         <i class="fas fa-boxes"></i>
@@ -1007,7 +1022,7 @@
                     <div class="summary-card">
                         <i class="fas fa-chart-line"></i>
                         <h3>MONTHLY REVENUE</h3>
-                        <div class="value">KES <span id="monthly-revenue">00,000,000.00</span></div>
+                        <div class="value">KES <span id="monthly-revenue">0.00</span></div>
                     </div>
                 </div>
 
@@ -1157,8 +1172,8 @@
                             </div>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn edit-user" data-id="1"><i class="fas fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger delete-user" data-id="1"><i class="fas fa-trash"></i> Delete</button>
+                            <button class="btn"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
                         </div>
                     </div>
                     
@@ -1171,8 +1186,8 @@
                             </div>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn edit-user" data-id="2"><i class="fas fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger delete-user" data-id="2"><i class="fas fa-trash"></i> Delete</button>
+                            <button class="btn"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
                         </div>
                     </div>
                     
@@ -1185,8 +1200,8 @@
                             </div>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn edit-user" data-id="3"><i class="fas fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger delete-user" data-id="3"><i class="fas fa-trash"></i> Delete</button>
+                            <button class="btn"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
                         </div>
                     </div>
                 </div>
@@ -1194,6 +1209,7 @@
         </div>
     </div>
 
+    <!-- The rest of the HTML remains the same -->
     <!-- Invoice Modal -->
     <div class="modal-overlay" id="invoice-modal">
         <div class="modal-content">
@@ -1465,6 +1481,7 @@
             applyPermissions() {
                 const isAdmin = this.currentUser.role === 'admin';
                 const isManager = this.currentUser.role === 'manager' || isAdmin;
+                const isCashier = this.currentUser.role === 'cashier';
                 
                 // Show/hide tabs based on permissions
                 document.querySelectorAll('.tab').forEach(tab => {
@@ -1478,6 +1495,18 @@
                 
                 // Show/hide user management button
                 document.getElementById('add-user').style.display = isAdmin ? 'block' : 'none';
+                
+                // Show/hide user management tab for cashiers
+                const usersTab = document.getElementById('users-tab');
+                const usersTabNav = document.getElementById('users-tab-nav');
+                
+                if (isCashier) {
+                    usersTab.classList.add('hidden');
+                    usersTabNav.classList.add('hidden');
+                } else {
+                    usersTab.classList.remove('hidden');
+                    usersTabNav.classList.remove('hidden');
+                }
             }
         };
 
@@ -1518,9 +1547,9 @@
                         { id: 7, name: "Drill", category: "tools", price: 12973.70, quantity: 5 },
                         { id: 8, name: "Saw", category: "tools", price: 3891.20, quantity: 8 },
                         { id: 9, name: "Level", category: "tools", price: 2074.70, quantity: 12 },
-                        { id: 10, name: "Pliers", category: "tools", price: 1296.20, quantity: 20 },
+                        { id: 10, name: "Pliers", category: "tools", price:1296.20, quantity: 20 },
                         { id: 11, name: "Wrench Set", category: "tools", price: 5188.70, quantity: 7 },
-                        { id: 12, name: "Safety Goggles", category: "tools", price: 1166.45, quantity: 30 },
+                        { id: 12, name: "Safety Goggles", category: "tools", price:1166.45, quantity: 30 },
                         { id: 13, name: "Extension Cord", category: "electrical", price: 2593.70, quantity: 25 },
                         { id: 14, name: "Light Bulbs", category: "electrical", price: 647.45, quantity: 50 },
                         { id: 15, name: "Paint Roller", category: "paint", price: 906.95, quantity: 40 },
@@ -1542,7 +1571,7 @@
             sales: [],
             currentTab: 'dashboard',
             editingProductId: null,
-            editingUserId: null,
+            lastScrollY: 0,
             
             init() {
                 // Initialize data
@@ -1555,15 +1584,40 @@
                 
                 // Set up event listeners
                 this.setupEventListeners();
-                //render initial views
-                this.renderDashboard();
-                this.renderProducts();
-                this.renderInventory();
-                
                 
                 // Set current date in reports
                 const today = new Date().toISOString().split('T')[0];
                 document.getElementById('report-start-date').value = today;
+                
+                // Set up scroll listener for header
+                this.setupScrollListener();
+            },
+            
+            setupScrollListener() {
+                let ticking = false;
+                
+                const handleScroll = () => {
+                    const currentScrollY = window.scrollY;
+                    const header = document.getElementById('main-header');
+                    
+                    if (currentScrollY > this.lastScrollY && currentScrollY > 100) {
+                        // Scrolling down, hide header
+                        header.classList.add('hidden');
+                    } else {
+                        // Scrolling up, show header
+                        header.classList.remove('hidden');
+                    }
+                    
+                    this.lastScrollY = currentScrollY;
+                    ticking = false;
+                };
+                
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        window.requestAnimationFrame(handleScroll);
+                        ticking = true;
+                    }
+                });
             },
             
             setupEventListeners() {
@@ -1653,21 +1707,6 @@
                     this.saveUser();
                 });
                 
-                // Edit/Delete user buttons
-                document.querySelectorAll('.edit-user').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        const id = parseInt(btn.dataset.id);
-                        this.editUser(id);
-                    });
-                });
-                
-                document.querySelectorAll('.delete-user').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        const id = parseInt(btn.dataset.id);
-                        this.deleteUser(id);
-                    });
-                });
-                
                 // Invoice functionality
                 document.getElementById('print-invoice').addEventListener('click', () => {
                     window.print();
@@ -1725,6 +1764,8 @@
                 // Refresh the tab content if needed
                 if (tabId === 'dashboard') {
                     this.renderDashboard();
+                } else if (tabId === 'pos') {
+                    this.renderProducts();
                 } else if (tabId === 'inventory') {
                     this.renderInventory();
                 } else if (tabId === 'users') {
@@ -1990,8 +2031,8 @@
                         <td>${product.quantity}</td>
                         <td><span class="badge ${statusClass}">${statusText}</span></td>
                         <td class="action-buttons">
-                            <button class="btn edit-product" data-id="${product.id}"><i class="fas fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger delete-product" data-id="${product.id}"><i class="fas fa-trash"></i> Delete</button>
+                            <button class="edit-product" data-id="${product.id}"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="delete-product btn-danger" data-id="${product.id}"><i class="fas fa-trash"></i> Delete</button>
                         </td>
                     `;
                     inventoryTable.appendChild(row);
@@ -2274,28 +2315,33 @@
             
             toggleReportDateFields(reportType) {
                 const endDateField = document.getElementById('report-end-date');
+                const startDateField = document.getElementById('report-start-date');
                 
                 if (reportType === 'custom') {
                     endDateField.classList.remove('hidden');
+                    // Set end date to start date if not already set
+                    if (!endDateField.value) {
+                        endDateField.value = startDateField.value;
+                    }
                 } else {
                     endDateField.classList.add('hidden');
                 }
             },
             
             generateReport() {
-                 const reportType = document.getElementById('report-type').value;
+                const reportType = document.getElementById('report-type').value;
                 const startDate = new Date(document.getElementById('report-start-date').value);
                 const endDateField = document.getElementById('report-end-date');
-               
+                
                 let endDate;
                 let reportData = [];
-               
+                
                 // Validate date input
                 if (!startDate.getTime()) {
                     alert('Please select a valid start date');
                     return;
                 }
-               
+                
                 // Calculate date range based on report type
                 if (reportType === 'daily') {
                     endDate = new Date(startDate);
@@ -2320,13 +2366,13 @@
                     // Include the entire end day
                     endDate.setDate(endDate.getDate() + 1);
                 }
-               
+                
                 // Filter sales data based on date range
                 reportData = this.sales.filter(sale => {
                     const saleDate = new Date(sale.date);
                     return saleDate >= startDate && saleDate < endDate;
                 });
-               
+                
                 // Display report results
                 this.displayReportResults(reportData, reportType, startDate, endDate);
             },
@@ -2336,10 +2382,10 @@
                 const table = reportResults.querySelector('table');
                 const chartContainer = reportResults.querySelector('.chart-container');
                 const tbody = table.querySelector('tbody');
-               
+                
                 // Clear previous results
                 tbody.innerHTML = '';
-               
+                
                 // Generate date range text for display
                 let dateRangeText = '';
                 if (reportType === 'daily') {
@@ -2353,7 +2399,7 @@
                     adjustedEndDate.setDate(adjustedEndDate.getDate() - 1);
                     dateRangeText = `from ${startDate.toLocaleDateString()} to ${adjustedEndDate.toLocaleDateString()}`;
                 }
-               
+                
                 // Update chart container text
                 chartContainer.innerHTML = `
                     <div style="text-align: center; padding: 20px;">
@@ -2363,16 +2409,16 @@
                         <p>Average Sale: <strong>KES ${(reportData.reduce((sum, sale) => sum + sale.total, 0) / (reportData.length || 1)).toFixed(2)}</strong></p>
                     </div>
                 `;
-               
+                
                 // Show the chart container and hide the table for now
                 chartContainer.classList.remove('hidden');
                 table.classList.add('hidden');
-               
+                
                 // If we have data, show the detailed table view option
                 if (reportData.length > 0) {
                     const viewToggle = document.createElement('button');
                     viewToggle.textContent = 'View Detailed Report';
-                    viewToggle.className = 'secondary';
+                    viewToggle.className = 'btn';
                     viewToggle.style.marginTop = '15px';
                     viewToggle.onclick = () => {
                         if (table.classList.contains('hidden')) {
@@ -2390,7 +2436,7 @@
                                     tbody.appendChild(row);
                                 });
                             });
-                           
+                            
                             table.classList.remove('hidden');
                             viewToggle.textContent = 'Hide Detailed Report';
                         } else {
@@ -2398,14 +2444,14 @@
                             viewToggle.textContent = 'View Detailed Report';
                         }
                     };
-                   
+                    
                     chartContainer.appendChild(viewToggle);
                 }
-               
+                
                 // Also add export functionality
                 const exportButton = document.createElement('button');
                 exportButton.textContent = 'Export to CSV';
-                exportButton.className = 'success';
+                exportButton.className = 'btn btn-success';
                 exportButton.style.marginLeft = '10px';
                 exportButton.onclick = () => this.exportReportToCSV(reportData, `${reportType}_report_${new Date().getTime()}`);
                 chartContainer.appendChild(exportButton);
@@ -2416,36 +2462,36 @@
                     alert('No data to export');
                     return;
                 }
-               
+                
                 // Create CSV content
                 let csvContent = 'Date,Invoice ID,Product,Quantity,Price,Total\n';
-               
+                
                 reportData.forEach(sale => {
                     sale.items.forEach(item => {
                         csvContent += `"${new Date(sale.date).toLocaleDateString()}","${sale.id}","${item.name}","${item.quantity}","${item.price}","${(item.price * item.quantity).toFixed(2)}"\n`;
                     });
                 });
-               
+                
                 // Add summary
                 const totalSales = reportData.reduce((sum, sale) => sum + sale.total, 0);
                 csvContent += `\n\nSummary,,\nTotal Sales,${totalSales.toFixed(2)}\nNumber of Transactions,${reportData.length}\nAverage Sale,${(totalSales / reportData.length).toFixed(2)}`;
-               
+                
                 // Create download link
                 const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
                 const link = document.createElement('a');
                 const url = URL.createObjectURL(blob);
-               
+                
                 link.setAttribute('href', url);
                 link.setAttribute('download', `${filename}.csv`);
                 link.style.visibility = 'hidden';
-               
+                
                 document.body.appendChild(link);
                 link.click();
-                document.body.removeChild(link);   
+                document.body.removeChild(link);
             },
 
             exportReport() {
-                alert('Export functionality would be implemented here.');
+                alert('Export functionality would be implemented here. The current report would be exported in the selected format.');
             }
         };
 
