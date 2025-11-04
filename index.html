@@ -16,7 +16,7 @@
 
         body {
             background-color: #f5f7f9;
-            color: #504f4f;
+            color: #333;
             line-height: 1.6;
         }
 
@@ -26,43 +26,39 @@
             padding: 20px;
         }
 
-        /* Header Styles - Minimized to half size */
+        /* Header Styles */
         header {
             background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
             color: white;
-            padding: 8px 0; /* Reduced from 15px */
-            margin-bottom: 15px; /* Reduced from 25px */
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+            padding: 8px 0;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 100;
             transition: transform 0.3s ease;
-            height: 50px; /* Fixed height for consistency */
-        }
-
-        header.hidden {
-            transform: translateY(-100%);
+            height: 50px;
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100%; /* Ensure content fits in smaller header */
+            height: 100%;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            font-size: 18px; /* Reduced from 24px */
+            font-size: 18px;
             font-weight: bold;
         }
 
         .logo i {
-            margin-right: 8px; /* Reduced from 10px */
-            font-size: 20px; /* Reduced from 28px */
+            margin-right: 8px;
+            font-size: 20px;
         }
 
         nav ul {
@@ -71,48 +67,106 @@
         }
 
         nav ul li {
-            margin-left: 12px; /* Reduced from 20px */
+            margin-left: 12px;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
-            padding: 6px 10px; /* Reduced from 8px 15px */
-            border-radius: 3px; /* Reduced from 4px */
+            padding: 6px 10px;
+            border-radius: 3px;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            font-size: 13px; /* Smaller font for nav items */
+            font-size: 13px;
         }
 
         nav ul li a i {
-            margin-right: 6px; /* Reduced from 8px */
-            font-size: 13px; /* Smaller icons */
+            margin-right: 6px;
+            font-size: 13px;
         }
 
         nav ul li a:hover, nav ul li a.active {
             background-color: #3498db;
-            transform: translateY(-1px); /* Reduced from -2px */
+            transform: translateY(-1px);
         }
 
         .user-info {
             display: flex;
             align-items: center;
-            gap: 8px; /* Reduced from 10px */
+            gap: 8px;
             color: white;
-            font-size: 13px; /* Smaller font */
+            font-size: 13px;
         }
 
         .user-avatar {
-            width: 25px; /* Reduced from 35px */
-            height: 25px; /* Reduced from 35px */
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
             background: #3498db;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 12px; /* Reduced from 16px */
+            font-size: 12px;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 50px;
+            left: 0;
+            right: 0;
+            background: #2c3e50;
+            z-index: 99;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        .mobile-menu ul li {
+            border-bottom: 1px solid #3a506b;
+        }
+
+        .mobile-menu ul li:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu ul li a {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .mobile-menu ul li a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .mobile-menu ul li a:hover {
+            background: #3498db;
+        }
+
+        .mobile-menu ul li a.active {
+            background: #3498db;
         }
 
         /* Login Form Styles */
@@ -121,6 +175,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            background: #f5f7f9;
         }
 
         .login-form {
@@ -168,7 +223,7 @@
             background-color: #3498db;
             color: white;
             border: none;
-            padding: 10px 16px; /* Slightly reduced */
+            padding: 12px 16px;
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s;
@@ -176,12 +231,11 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            font-size: 14px; /* Slightly smaller */
+            font-size: 14px;
         }
 
         .btn i {
-            margin-right: 6px; /* Reduced from 8px */
+            margin-right: 6px;
         }
 
         .btn:hover {
@@ -200,8 +254,6 @@
 
         .btn-danger {
             background-color: #e74c3c;
-            padding: 8px 12px; /* Smaller for logout button */
-            font-size: 12px; /* Smaller font */
         }
 
         .btn-danger:hover {
@@ -230,7 +282,6 @@
             margin-bottom: 5px;
         }
 
-        /* Rest of the CSS remains the same */
         /* Tab Navigation */
         .tabs {
             display: flex;
@@ -676,34 +727,6 @@
             padding: 20px;
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #2c3e50;
-        }
-
-        .form-group input, 
-        .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus, 
-        .form-group select:focus {
-            border-color: #3498db;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-        }
-
         .form-actions {
             display: flex;
             justify-content: flex-end;
@@ -824,19 +847,17 @@
 
         @media (max-width: 768px) {
             .header-content {
-                flex-direction: column;
+                flex-direction: row;
                 text-align: center;
-                gap: 10px; /* Reduced from 15px */
+                gap: 10px;
             }
             
             nav ul {
-                margin-top: 10px; /* Reduced from 15px */
-                flex-wrap: wrap;
-                justify-content: center;
+                display: none;
             }
             
-            nav ul li {
-                margin: 3px; /* Reduced from 5px */
+            .mobile-menu-toggle {
+                display: block;
             }
             
             .tabs {
@@ -933,7 +954,14 @@
         }
 
         .hidden {
-            display: none;
+            display: none !important;
+        }
+
+        .empty-cart, .no-products {
+            text-align: center;
+            padding: 20px;
+            color: #6c757d;
+            font-style: italic;
         }
     </style>
 </head>
@@ -944,7 +972,13 @@
                 <i class="fas fa-hard-hat"></i>
                 <span>Hardware Manager</span>
             </div>
-            <nav id="main-nav" class="hidden">
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="main-nav">
                 <ul>
                     <li><a href="#" class="nav-link active" data-tab="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                     <li><a href="#" class="nav-link" data-tab="pos"><i class="fas fa-cash-register"></i> POS</a></li>
@@ -953,6 +987,7 @@
                     <li id="users-tab-nav" class="hidden"><a href="#" class="nav-link" data-tab="users"><i class="fas fa-users"></i> Users</a></li>
                 </ul>
             </nav>
+            
             <div id="user-info" class="user-info hidden">
                 <div class="user-avatar" id="user-avatar">U</div>
                 <div>
@@ -962,20 +997,31 @@
                 <button id="logout-btn" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Logout</button>
             </div>
         </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <ul>
+                <li><a href="#" class="mobile-nav-link active" data-tab="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#" class="mobile-nav-link" data-tab="pos"><i class="fas fa-cash-register"></i> POS</a></li>
+                <li><a href="#" class="mobile-nav-link" data-tab="inventory"><i class="fas fa-boxes"></i> Inventory</a></li>
+                <li><a href="#" class="mobile-nav-link" data-tab="reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                <li id="users-tab-mobile" class="hidden"><a href="#" class="mobile-nav-link" data-tab="users"><i class="fas fa-users"></i> Users</a></li>
+            </ul>
+        </div>
     </header>
 
-    <div class="container" style="margin-top: 60px;"> <!-- Reduced from 80px to account for smaller header -->
+    <div class="container" style="margin-top: 70px;">
         <!-- Login Form -->
         <div id="login-container" class="login-container">
             <div class="login-form">
                 <h2><i class="fas fa-lock"></i> Hardware Store Login</h2>
                 <div class="form-group">
                     <label for="login-username">Username</label>
-                    <input type="text" id="login-username" placeholder="Enter your username">
+                    <input type="text" id="login-username" placeholder="Enter your username" value="admin">
                 </div>
                 <div class="form-group">
                     <label for="login-password">Password</label>
-                    <input type="password" id="login-password" placeholder="Enter your password">
+                    <input type="password" id="login-password" placeholder="Enter your password" value="admin123">
                 </div>
                 <button id="login-btn" class="btn btn-success"><i class="fas fa-sign-in-alt"></i> Login</button>
                 
@@ -1038,7 +1084,7 @@
                             </tr>
                         </thead>
                         <tbody id="recent-sales">
-                            <!-- Recent sales will be populated here -->
+                            <tr><td colspan="4" style="text-align: center;">No recent sales</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -1055,7 +1101,7 @@
                             </tr>
                         </thead>
                         <tbody id="low-stock-items">
-                            <!-- Low stock items will be populated here -->
+                            <tr><td colspan="4" style="text-align: center;">No low stock items</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -1070,13 +1116,13 @@
                             <input type="text" id="product-search" placeholder="Search products by name or category...">
                         </div>
                         <div class="product-list" id="product-list">
-                            <!-- Product cards will be inserted here by JavaScript -->
+                            <div class="no-products">No products found</div>
                         </div>
                     </div>
                     <div class="shopping-cart">
                         <h3><i class="fas fa-shopping-cart"></i> Current Sale</h3>
                         <div id="cart-items">
-                            <!-- Cart items will be inserted here by JavaScript -->
+                            <div class="empty-cart">Cart is empty</div>
                         </div>
                         <div class="cart-total">
                             <p>Total: <span>KES <span id="cart-total">0.00</span></span></p>
@@ -1114,7 +1160,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Inventory items will be inserted here by JavaScript -->
+                        <tr><td colspan="7" style="text-align: center;">No products found</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1163,53 +1209,12 @@
                 </div>
                 
                 <div class="user-management">
-                    <div class="user-item">
-                        <div class="user-details">
-                            <div class="user-avatar">A</div>
-                            <div>
-                                <div>Administrator User</div>
-                                <div class="user-role role-admin">Administrator</div>
-                            </div>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn"><i class="fas fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
-                        </div>
-                    </div>
-                    
-                    <div class="user-item">
-                        <div class="user-details">
-                            <div class="user-avatar">M</div>
-                            <div>
-                                <div>Manager User</div>
-                                <div class="user-role role-manager">Manager</div>
-                            </div>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn"><i class="fas fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
-                        </div>
-                    </div>
-                    
-                    <div class="user-item">
-                        <div class="user-details">
-                            <div class="user-avatar">C</div>
-                            <div>
-                                <div>Cashier User</div>
-                                <div class="user-role role-cashier">Cashier</div>
-                            </div>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="btn"><i class="fas fa-edit"></i> Edit</button>
-                            <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
-                        </div>
-                    </div>
+                    <!-- Users will be populated here -->
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- The rest of the HTML remains the same -->
     <!-- Invoice Modal -->
     <div class="modal-overlay" id="invoice-modal">
         <div class="modal-content">
@@ -1348,18 +1353,15 @@
     <script>
         // User management functions
         const UserManager = {
-            // Get all users from localStorage
             getUsers() {
                 const users = localStorage.getItem('hardwareUsers');
                 return users ? JSON.parse(users) : [];
             },
             
-            // Save users to localStorage
             saveUsers(users) {
                 localStorage.setItem('hardwareUsers', JSON.stringify(users));
             },
             
-            // Initialize default users if none exist
             initializeUsers() {
                 if (this.getUsers().length === 0) {
                     const defaultUsers = [
@@ -1392,10 +1394,8 @@
                 }
             },
             
-            // Add a new user
             addUser(user) {
                 const users = this.getUsers();
-                // Generate a unique ID
                 user.id = users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1;
                 user.createdAt = new Date().toISOString();
                 users.push(user);
@@ -1403,12 +1403,10 @@
                 return user;
             },
             
-            // Find user by username
             findUserByUsername(username) {
                 return this.getUsers().find(user => user.username === username);
             },
             
-            // Authenticate user
             authenticate(username, password) {
                 const user = this.findUserByUsername(username);
                 if (user && user.password === password) {
@@ -1422,20 +1420,16 @@
         const AuthManager = {
             currentUser: null,
             
-            // Initialize authentication
             init() {
-                // Check if user is logged in
                 const savedUser = localStorage.getItem('hardwareCurrentUser');
                 if (savedUser) {
                     this.currentUser = JSON.parse(savedUser);
                     this.updateUI();
                 }
                 
-                // Initialize default users if needed
                 UserManager.initializeUsers();
             },
             
-            // Login function
             login(username, password) {
                 const user = UserManager.authenticate(username, password);
                 if (user) {
@@ -1447,72 +1441,42 @@
                 return false;
             },
             
-            // Logout function
             logout() {
                 this.currentUser = null;
                 localStorage.removeItem('hardwareCurrentUser');
                 this.updateUI();
             },
             
-            // Update UI based on authentication state
             updateUI() {
                 if (this.currentUser) {
-                    // User is logged in
                     document.getElementById('login-container').classList.add('hidden');
                     document.getElementById('main-application').classList.remove('hidden');
-                    document.getElementById('main-nav').classList.remove('hidden');
                     document.getElementById('user-info').classList.remove('hidden');
                     document.getElementById('user-name').textContent = this.currentUser.fullName;
                     document.getElementById('user-role').textContent = this.currentUser.role;
                     document.getElementById('user-avatar').textContent = this.currentUser.fullName.charAt(0);
                     
-                    // Set role-based UI elements
                     this.applyPermissions();
                 } else {
-                    // User is not logged in
                     document.getElementById('login-container').classList.remove('hidden');
                     document.getElementById('main-application').classList.add('hidden');
-                    document.getElementById('main-nav').classList.add('hidden');
                     document.getElementById('user-info').classList.add('hidden');
                 }
             },
             
-            // Apply role-based permissions to UI
             applyPermissions() {
                 const isAdmin = this.currentUser.role === 'admin';
                 const isManager = this.currentUser.role === 'manager' || isAdmin;
-                const isCashier = this.currentUser.role === 'cashier';
                 
-                // Show/hide tabs based on permissions
-                document.querySelectorAll('.tab').forEach(tab => {
-                    const tabName = tab.getAttribute('data-tab');
-                    if (tabName === 'users' && !isAdmin) {
-                        tab.style.display = 'none';
-                    } else {
-                        tab.style.display = 'flex';
-                    }
-                });
-                
-                // Show/hide user management button
+                document.getElementById('users-tab').style.display = isAdmin ? 'flex' : 'none';
+                document.getElementById('users-tab-nav').style.display = isAdmin ? 'block' : 'none';
+                document.getElementById('users-tab-mobile').style.display = isAdmin ? 'block' : 'none';
                 document.getElementById('add-user').style.display = isAdmin ? 'block' : 'none';
-                
-                // Show/hide user management tab for cashiers
-                const usersTab = document.getElementById('users-tab');
-                const usersTabNav = document.getElementById('users-tab-nav');
-                
-                if (isCashier) {
-                    usersTab.classList.add('hidden');
-                    usersTabNav.classList.add('hidden');
-                } else {
-                    usersTab.classList.remove('hidden');
-                    usersTabNav.classList.remove('hidden');
-                }
             }
         };
 
         // Data management with localStorage
         const DataManager = {
-            // Products
             getProducts() {
                 const products = localStorage.getItem('hardwareProducts');
                 return products ? JSON.parse(products) : null;
@@ -1522,7 +1486,6 @@
                 localStorage.setItem('hardwareProducts', JSON.stringify(products));
             },
             
-            // Sales
             getSales() {
                 const sales = localStorage.getItem('hardwareSales');
                 return sales ? JSON.parse(sales) : [];
@@ -1534,7 +1497,6 @@
                 localStorage.setItem('hardwareSales', JSON.stringify(sales));
             },
             
-            // Initialize default data if none exists
             initializeData() {
                 if (!this.getProducts()) {
                     const defaultProducts = [
@@ -1547,17 +1509,7 @@
                         { id: 7, name: "Drill", category: "tools", price: 12973.70, quantity: 5 },
                         { id: 8, name: "Saw", category: "tools", price: 3891.20, quantity: 8 },
                         { id: 9, name: "Level", category: "tools", price: 2074.70, quantity: 12 },
-                        { id: 10, name: "Pliers", category: "tools", price:1296.20, quantity: 20 },
-                        { id: 11, name: "Wrench Set", category: "tools", price: 5188.70, quantity: 7 },
-                        { id: 12, name: "Safety Goggles", category: "tools", price:1166.45, quantity: 30 },
-                        { id: 13, name: "Extension Cord", category: "electrical", price: 2593.70, quantity: 25 },
-                        { id: 14, name: "Light Bulbs", category: "electrical", price: 647.45, quantity: 50 },
-                        { id: 15, name: "Paint Roller", category: "paint", price: 906.95, quantity: 40 },
-                        { id: 16, name: "Caulk Gun", category: "plumbing", price: 1685.45, quantity: 15 },
-                        { id: 17, name: "Sandpaper", category: "tools", price: 387.50, quantity: 100 },
-                        { id: 18, name: "Stud Finder", category: "tools", price: 3242.45, quantity: 10 },
-                        { id: 19, name: "Toolbox", category: "tools", price: 6486.20, quantity: 5 },
-                        { id: 20, name: "Safety Gloves", category: "tools", price: 1036.75, quantity: 20 }
+                        { id: 10, name: "Pliers", category: "tools", price:1296.20, quantity: 20 }
                     ];
                     this.saveProducts(defaultProducts);
                 }
@@ -1571,56 +1523,41 @@
             sales: [],
             currentTab: 'dashboard',
             editingProductId: null,
-            lastScrollY: 0,
             
             init() {
-                // Initialize data
                 DataManager.initializeData();
-                this.products = DataManager.getProducts();
+                this.products = DataManager.getProducts() || [];
                 this.sales = DataManager.getSales();
                 
-                // Initialize authentication
                 AuthManager.init();
                 
-                // Set up event listeners
                 this.setupEventListeners();
                 
-                // Set current date in reports
                 const today = new Date().toISOString().split('T')[0];
                 document.getElementById('report-start-date').value = today;
                 
-                // Set up scroll listener for header
-                this.setupScrollListener();
-            },
-            
-            setupScrollListener() {
-                let ticking = false;
-                
-                const handleScroll = () => {
-                    const currentScrollY = window.scrollY;
-                    const header = document.getElementById('main-header');
-                    
-                    if (currentScrollY > this.lastScrollY && currentScrollY > 100) {
-                        // Scrolling down, hide header
-                        header.classList.add('hidden');
-                    } else {
-                        // Scrolling up, show header
-                        header.classList.remove('hidden');
-                    }
-                    
-                    this.lastScrollY = currentScrollY;
-                    ticking = false;
-                };
-                
-                window.addEventListener('scroll', () => {
-                    if (!ticking) {
-                        window.requestAnimationFrame(handleScroll);
-                        ticking = true;
-                    }
-                });
+                // Initialize with some data for display
+                this.renderProducts();
+                this.renderInventory();
+                this.renderDashboard();
             },
             
             setupEventListeners() {
+                // Mobile menu toggle
+                document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+                });
+                
+                // Mobile menu navigation
+                document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.switchTab(link.dataset.tab);
+                        document.getElementById('mobile-menu').style.display = 'none';
+                    });
+                });
+                
                 // Login functionality
                 document.getElementById('login-btn').addEventListener('click', () => {
                     const username = document.getElementById('login-username').value;
@@ -1732,7 +1669,6 @@
             },
             
             switchTab(tabId) {
-                // Update active tab
                 document.querySelectorAll('.tab').forEach(tab => {
                     if (tab.dataset.tab === tabId) {
                         tab.classList.add('active');
@@ -1741,7 +1677,6 @@
                     }
                 });
                 
-                // Update active content
                 document.querySelectorAll('.tab-content').forEach(content => {
                     if (content.id === tabId) {
                         content.classList.add('active');
@@ -1750,8 +1685,15 @@
                     }
                 });
                 
-                // Update nav links
                 document.querySelectorAll('.nav-link').forEach(link => {
+                    if (link.dataset.tab === tabId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+                
+                document.querySelectorAll('.mobile-nav-link').forEach(link => {
                     if (link.dataset.tab === tabId) {
                         link.classList.add('active');
                     } else {
@@ -1761,7 +1703,6 @@
                 
                 this.currentTab = tabId;
                 
-                // Refresh the tab content if needed
                 if (tabId === 'dashboard') {
                     this.renderDashboard();
                 } else if (tabId === 'pos') {
@@ -1858,7 +1799,6 @@
                     cartItems.appendChild(cartItem);
                 });
                 
-                // Add event listeners to quantity buttons
                 document.querySelectorAll('.quantity-btn').forEach(btn => {
                     btn.addEventListener('click', (e) => {
                         const id = parseInt(btn.dataset.id);
@@ -1867,7 +1807,6 @@
                     });
                 });
                 
-                // Add event listeners to remove buttons
                 document.querySelectorAll('.cart-item-remove').forEach(btn => {
                     btn.addEventListener('click', (e) => {
                         const id = parseInt(btn.dataset.id);
@@ -1875,7 +1814,6 @@
                     });
                 });
                 
-                // Update total
                 const total = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
                 document.getElementById('cart-total').textContent = total.toFixed(2);
             },
@@ -1918,7 +1856,6 @@
                     return;
                 }
                 
-                // Check if any product in cart has insufficient stock
                 for (const item of this.cart) {
                     const product = this.products.find(p => p.id === item.id);
                     if (product.quantity < item.quantity) {
@@ -1927,16 +1864,13 @@
                     }
                 }
                 
-                // Update product quantities
                 for (const item of this.cart) {
                     const productIndex = this.products.findIndex(p => p.id === item.id);
                     this.products[productIndex].quantity -= item.quantity;
                 }
                 
-                // Save updated products
                 DataManager.saveProducts(this.products);
                 
-                // Create sale record
                 const sale = {
                     id: new Date().getTime(),
                     date: new Date().toISOString(),
@@ -1946,28 +1880,22 @@
                     userName: AuthManager.currentUser.username
                 };
                 
-                // Save sale
                 this.sales.push(sale);
                 DataManager.saveSale(sale);
                 
-                // Generate invoice
                 this.generateInvoice(sale);
                 
-                // Clear cart
                 this.clearCart();
                 
-                // Refresh views
                 this.renderProducts();
                 this.renderInventory();
                 this.renderDashboard();
             },
             
             generateInvoice(sale) {
-                // Set invoice details
                 document.getElementById('invoice-number').textContent = sale.id;
                 document.getElementById('invoice-date').textContent = new Date(sale.date).toLocaleDateString();
                 
-                // Add items to invoice
                 const invoiceItems = document.getElementById('invoice-items');
                 invoiceItems.innerHTML = '';
                 
@@ -1982,10 +1910,8 @@
                     invoiceItems.appendChild(row);
                 });
                 
-                // Set total
                 document.getElementById('invoice-total').textContent = sale.total.toFixed(2);
                 
-                // Show invoice modal
                 document.getElementById('invoice-modal').style.display = 'flex';
             },
             
@@ -2010,7 +1936,6 @@
                 filteredProducts.forEach(product => {
                     const row = document.createElement('tr');
                     
-                    // Determine stock status
                     let statusClass, statusText;
                     if (product.quantity > 10) {
                         statusClass = 'badge-success';
@@ -2031,14 +1956,13 @@
                         <td>${product.quantity}</td>
                         <td><span class="badge ${statusClass}">${statusText}</span></td>
                         <td class="action-buttons">
-                            <button class="edit-product" data-id="${product.id}"><i class="fas fa-edit"></i> Edit</button>
-                            <button class="delete-product btn-danger" data-id="${product.id}"><i class="fas fa-trash"></i> Delete</button>
+                            <button class="btn edit-product" data-id="${product.id}"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="btn btn-danger delete-product" data-id="${product.id}"><i class="fas fa-trash"></i> Delete</button>
                         </td>
                     `;
                     inventoryTable.appendChild(row);
                 });
                 
-                // Add event listeners to edit/delete buttons
                 document.querySelectorAll('.edit-product').forEach(btn => {
                     btn.addEventListener('click', () => {
                         const id = parseInt(btn.dataset.id);
@@ -2089,22 +2013,17 @@
                 const quantity = parseInt(document.getElementById('product-quantity').value);
                 
                 if (this.editingProductId) {
-                    // Update existing product
                     const index = this.products.findIndex(p => p.id === this.editingProductId);
                     this.products[index] = { id, name, category, price, quantity };
                 } else {
-                    // Add new product
                     this.products.push({ id, name, category, price, quantity });
                 }
                 
-                // Save to localStorage
                 DataManager.saveProducts(this.products);
                 
-                // Refresh views
                 this.renderInventory();
                 this.renderProducts();
                 
-                // Hide modal
                 this.hideProductModal();
             },
             
@@ -2113,27 +2032,22 @@
                 
                 this.products = this.products.filter(p => p.id !== id);
                 
-                // Save to localStorage
                 DataManager.saveProducts(this.products);
                 
-                // Refresh views
                 this.renderInventory();
                 this.renderProducts();
                 this.renderDashboard();
             },
             
             renderDashboard() {
-                // Calculate dashboard metrics
                 const totalProducts = this.products.length;
                 const lowStockCount = this.products.filter(p => p.quantity > 0 && p.quantity < 5).length;
                 
-                // Today's sales
                 const today = new Date().toDateString();
                 const todaySales = this.sales
                     .filter(sale => new Date(sale.date).toDateString() === today)
                     .reduce((sum, sale) => sum + sale.total, 0);
                 
-                // Monthly revenue (current month)
                 const now = new Date();
                 const currentMonth = now.getMonth();
                 const currentYear = now.getFullYear();
@@ -2144,13 +2058,11 @@
                     })
                     .reduce((sum, sale) => sum + sale.total, 0);
                 
-                // Update dashboard values
                 document.getElementById('today-sales').textContent = todaySales.toFixed(2);
                 document.getElementById('total-products').textContent = totalProducts;
                 document.getElementById('low-stock-count').textContent = lowStockCount;
                 document.getElementById('monthly-revenue').textContent = monthlyRevenue.toFixed(2);
                 
-                // Recent sales
                 const recentSales = document.getElementById('recent-sales');
                 recentSales.innerHTML = '';
                 
@@ -2173,7 +2085,6 @@
                     });
                 }
                 
-                // Low stock items
                 const lowStockItems = document.getElementById('low-stock-items');
                 lowStockItems.innerHTML = '';
                 
@@ -2234,7 +2145,6 @@
                     userManagement.appendChild(userItem);
                 });
                 
-                // Add event listeners
                 document.querySelectorAll('.edit-user').forEach(btn => {
                     btn.addEventListener('click', () => {
                         const id = parseInt(btn.dataset.id);
@@ -2286,20 +2196,16 @@
                 const role = document.getElementById('user-role').value;
                 
                 if (this.editingUserId) {
-                    // Update existing user
                     const users = UserManager.getUsers();
                     const index = users.findIndex(u => u.id === this.editingUserId);
                     users[index] = { id, username, password, fullName, role, createdAt: users[index].createdAt };
                     UserManager.saveUsers(users);
                 } else {
-                    // Add new user
                     UserManager.addUser({ username, password, fullName, role });
                 }
                 
-                // Refresh views
                 this.renderUsers();
                 
-                // Hide modal
                 this.hideUserModal();
             },
             
@@ -2309,189 +2215,25 @@
                 const users = UserManager.getUsers().filter(u => u.id !== id);
                 UserManager.saveUsers(users);
                 
-                // Refresh views
                 this.renderUsers();
             },
             
             toggleReportDateFields(reportType) {
                 const endDateField = document.getElementById('report-end-date');
-                const startDateField = document.getElementById('report-start-date');
                 
                 if (reportType === 'custom') {
                     endDateField.classList.remove('hidden');
-                    // Set end date to start date if not already set
-                    if (!endDateField.value) {
-                        endDateField.value = startDateField.value;
-                    }
                 } else {
                     endDateField.classList.add('hidden');
                 }
             },
             
             generateReport() {
-                const reportType = document.getElementById('report-type').value;
-                const startDate = new Date(document.getElementById('report-start-date').value);
-                const endDateField = document.getElementById('report-end-date');
-                
-                let endDate;
-                let reportData = [];
-                
-                // Validate date input
-                if (!startDate.getTime()) {
-                    alert('Please select a valid start date');
-                    return;
-                }
-                
-                // Calculate date range based on report type
-                if (reportType === 'daily') {
-                    endDate = new Date(startDate);
-                    endDate.setDate(endDate.getDate() + 1);
-                } else if (reportType === 'weekly') {
-                    endDate = new Date(startDate);
-                    endDate.setDate(endDate.getDate() + 7);
-                } else if (reportType === 'monthly') {
-                    endDate = new Date(startDate);
-                    endDate.setMonth(endDate.getMonth() + 1);
-                } else if (reportType === 'custom') {
-                    endDate = new Date(endDateField.value);
-                    if (!endDate.getTime()) {
-                        alert('Please select a valid end date');
-                        return;
-                    }
-                    // Ensure end date is after start date
-                    if (endDate < startDate) {
-                        alert('End date must be after start date');
-                        return;
-                    }
-                    // Include the entire end day
-                    endDate.setDate(endDate.getDate() + 1);
-                }
-                
-                // Filter sales data based on date range
-                reportData = this.sales.filter(sale => {
-                    const saleDate = new Date(sale.date);
-                    return saleDate >= startDate && saleDate < endDate;
-                });
-                
-                // Display report results
-                this.displayReportResults(reportData, reportType, startDate, endDate);
-            },
-
-            displayReportResults(reportData, reportType, startDate, endDate) {
-                const reportResults = document.getElementById('report-results');
-                const table = reportResults.querySelector('table');
-                const chartContainer = reportResults.querySelector('.chart-container');
-                const tbody = table.querySelector('tbody');
-                
-                // Clear previous results
-                tbody.innerHTML = '';
-                
-                // Generate date range text for display
-                let dateRangeText = '';
-                if (reportType === 'daily') {
-                    dateRangeText = `for ${startDate.toLocaleDateString()}`;
-                } else if (reportType === 'weekly') {
-                    dateRangeText = `for the week of ${startDate.toLocaleDateString()}`;
-                } else if (reportType === 'monthly') {
-                    dateRangeText = `for ${startDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`;
-                } else {
-                    const adjustedEndDate = new Date(endDate);
-                    adjustedEndDate.setDate(adjustedEndDate.getDate() - 1);
-                    dateRangeText = `from ${startDate.toLocaleDateString()} to ${adjustedEndDate.toLocaleDateString()}`;
-                }
-                
-                // Update chart container text
-                chartContainer.innerHTML = `
-                    <div style="text-align: center; padding: 20px;">
-                        <h3>Sales Report ${dateRangeText}</h3>
-                        <p>Total Sales: <strong>KES ${reportData.reduce((sum, sale) => sum + sale.total, 0).toFixed(2)}</strong></p>
-                        <p>Number of Transactions: <strong>${reportData.length}</strong></p>
-                        <p>Average Sale: <strong>KES ${(reportData.reduce((sum, sale) => sum + sale.total, 0) / (reportData.length || 1)).toFixed(2)}</strong></p>
-                    </div>
-                `;
-                
-                // Show the chart container and hide the table for now
-                chartContainer.classList.remove('hidden');
-                table.classList.add('hidden');
-                
-                // If we have data, show the detailed table view option
-                if (reportData.length > 0) {
-                    const viewToggle = document.createElement('button');
-                    viewToggle.textContent = 'View Detailed Report';
-                    viewToggle.className = 'btn';
-                    viewToggle.style.marginTop = '15px';
-                    viewToggle.onclick = () => {
-                        if (table.classList.contains('hidden')) {
-                            // Populate table
-                            reportData.forEach(sale => {
-                                sale.items.forEach(item => {
-                                    const row = document.createElement('tr');
-                                    row.innerHTML = `
-                                        <td>${new Date(sale.date).toLocaleDateString()}</td>
-                                        <td>${sale.id}</td>
-                                        <td>${item.name}</td>
-                                        <td>${item.quantity}</td>
-                                        <td>KES ${(item.price * item.quantity).toFixed(2)}</td>
-                                    `;
-                                    tbody.appendChild(row);
-                                });
-                            });
-                            
-                            table.classList.remove('hidden');
-                            viewToggle.textContent = 'Hide Detailed Report';
-                        } else {
-                            table.classList.add('hidden');
-                            viewToggle.textContent = 'View Detailed Report';
-                        }
-                    };
-                    
-                    chartContainer.appendChild(viewToggle);
-                }
-                
-                // Also add export functionality
-                const exportButton = document.createElement('button');
-                exportButton.textContent = 'Export to CSV';
-                exportButton.className = 'btn btn-success';
-                exportButton.style.marginLeft = '10px';
-                exportButton.onclick = () => this.exportReportToCSV(reportData, `${reportType}_report_${new Date().getTime()}`);
-                chartContainer.appendChild(exportButton);
-            },
-
-            exportReportToCSV(reportData, filename) {
-                if (reportData.length === 0) {
-                    alert('No data to export');
-                    return;
-                }
-                
-                // Create CSV content
-                let csvContent = 'Date,Invoice ID,Product,Quantity,Price,Total\n';
-                
-                reportData.forEach(sale => {
-                    sale.items.forEach(item => {
-                        csvContent += `"${new Date(sale.date).toLocaleDateString()}","${sale.id}","${item.name}","${item.quantity}","${item.price}","${(item.price * item.quantity).toFixed(2)}"\n`;
-                    });
-                });
-                
-                // Add summary
-                const totalSales = reportData.reduce((sum, sale) => sum + sale.total, 0);
-                csvContent += `\n\nSummary,,\nTotal Sales,${totalSales.toFixed(2)}\nNumber of Transactions,${reportData.length}\nAverage Sale,${(totalSales / reportData.length).toFixed(2)}`;
-                
-                // Create download link
-                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-                const link = document.createElement('a');
-                const url = URL.createObjectURL(blob);
-                
-                link.setAttribute('href', url);
-                link.setAttribute('download', `${filename}.csv`);
-                link.style.visibility = 'hidden';
-                
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
+                alert('Report generation would be implemented here');
             },
 
             exportReport() {
-                alert('Export functionality would be implemented here. The current report would be exported in the selected format.');
+                alert('Export functionality would be implemented here');
             }
         };
 
